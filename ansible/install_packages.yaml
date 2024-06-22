@@ -23,16 +23,6 @@
         state: started
         enabled: true
 
-    - name: Insall "i3" tiling window manager
-      community.general.pacman:
-        name: i3
-        state: absent
-        
-    - name: Install "dmenu" dynamic menu for X
-      community.general.pacman:
-        name: dmenu
-        state: absent
-
     - name: Install "base-devel" package
       community.general.pacman:
         name: base-devel
@@ -40,11 +30,11 @@
 
     - name: Clone "yay" repository
       ansible.builtin.git: 
-        dest: ~/Projects/yay
+        dest: /usr/share/yay_repo
         repo: https://aur.archlinux.org/yay.git
 
     - name: Install "yay"
-      ansible.builtin.command: chdir=~/Projects=yay makepkg --noconfirm -si        
+      ansible.builtin.command: chdir=/usr/share/yay_repo makepkg --noconfirm -si        
 
     - name: Install "alacritty" terminal emulator
       community.general.pacman:
