@@ -38,6 +38,20 @@
       ansible.builtin.command: chdir=~/Projects/yay makepkg --noconfirm -si        
       become: false
 
+    - name: Install "hyprland" package from AUR using a Pacman compatible AUR helper
+      community.general.pacman:
+        name: hyprland
+        state: latest
+        executable: yay
+        extra_args: --builddir /var/cache/yay
+
+    - name: Install "hyprpaper" package from AUR using a Pacman compatible AUR helper
+      community.general.pacman:
+        name: hyprpaper
+        state: latest
+        executable: yay
+        extra_args: --builddir /var/cache/yay
+
     - name: Install "alacritty" terminal emulator
       community.general.pacman:
         name: alacritty
