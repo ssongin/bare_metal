@@ -42,7 +42,7 @@
     - name: Install "yay"
       ansible.builtin.command: chdir=~/Projects/yay makepkg --noconfirm -si        
       become: false
-      when: yay_version.stdout is regex('^yay\s\w\d+\.\d+\.\d+\s-\s\w+\s\w\d+\.\d+\.\d+$')
+      when: not yay_version.stdout is regex('^yay\s\w\d+\.\d+\.\d+\s-\s\w+\s\w\d+\.\d+\.\d+$')
 
     - name: Install "hyprland" package from AUR using a Pacman compatible AUR helper
       community.general.pacman:
@@ -57,6 +57,11 @@
         state: latest
         executable: yay
         extra_args: --builddir /var/cache/yay
+
+    - name: Install "polkit-gnome" authentication framework
+      community.general.pacman:
+        name: polkit-gnome
+        state: latest
 
     - name: Install "alacritty" terminal emulator
       community.general.pacman:
