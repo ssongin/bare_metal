@@ -68,6 +68,11 @@
         name: alacritty
         state: latest
 
+    - name: Install "tmux" terminal multiplexer
+      community.general.pacman:
+        name: "tmux"
+        state: latest
+
     - name: Install GNU "stow" symlink farm manager
       community.general.pacman:
         name: stow
