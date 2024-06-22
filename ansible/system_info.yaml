@@ -1,0 +1,21 @@
+---
+- name: Display info
+  hosts: local
+  tags: debug
+  tasks: 
+
+  - name: Display OS Family
+    debug:
+      msg: "Operating System Family is {{ ansible_os_family }}"
+
+  - name: Display Architecture
+    debug:
+      msg: "Architecture is {{ ansible_architecture }}"
+
+  - name: Execute task based on architecture
+    command: echo "Running on a 64-bit system"
+    when: ansible_architecture == "x86_64"
+
+  - name: Execute task based on OS family
+    command: echo "Running on a Debian system"
+    when: ansible_os_family == "Debian"
