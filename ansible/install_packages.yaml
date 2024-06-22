@@ -68,6 +68,11 @@
         name: alacritty
         state: latest
 
+    - name: Install GNU "stow" symlink farm manager
+      community.general.pacman:
+        name: stow
+        state: latest
+
     become: yes
     become_user: root
     when: ansible_os_family == "Archlinux"
