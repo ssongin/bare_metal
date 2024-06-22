@@ -35,6 +35,7 @@
 
     - name: Install "yay"
       ansible.builtin.command: chdir=/usr/share/yay_repo makepkg --noconfirm -si        
+      become: false
 
     - name: Install "alacritty" terminal emulator
       community.general.pacman:
