@@ -73,6 +73,11 @@
         name: stow
         state: latest
 
+    - name: Install "neovim" text editor
+      community.general.pacman:
+        name: neovim
+        state: latest
+
     become: yes
     become_user: root
     when: ansible_os_family == "Archlinux"
