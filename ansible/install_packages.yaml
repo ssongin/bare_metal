@@ -12,10 +12,10 @@
         update_cache: true
         upgrade: true
 
-    - name: Install "gnome"
+    - name: Install "gnome" desktop environment
       community.general.pacman:
         name: gnome
-        state: present
+        state: latest
 
     - name: Enable gnome desktop manager
       ansible.builtin.systemd_service:
@@ -26,6 +26,16 @@
     - name: Insall "i3" tiling window manager
       community.general.pacman:
         name: i3
+        state: latest
+
+    - name: Install "alacritty" terminal emulator
+      community.general.pacman:
+        name: alacritty
+        state: latest
+
+    - name: Install "dmenu" dynamic menu for X
+      community.general.pacman:
+        name: dmenu
         state: latest
 
     become: yes
