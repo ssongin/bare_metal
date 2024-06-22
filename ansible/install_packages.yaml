@@ -34,9 +34,15 @@
         repo: https://aur.archlinux.org/yay.git
       become: false
 
+    - name: Check if yay is present
+      ansible.builtin.command: yay --version
+      register: yay_version
+      become: false
+
     - name: Install "yay"
       ansible.builtin.command: chdir=~/Projects/yay makepkg --noconfirm -si        
       become: false
+      when: yay_version.stdout is regex('^yay\s\w\d+\.\d+\.\d+\s-\s\w+\s\w\d+\.\d+\.\d+$')
 
     - name: Install "hyprland" package from AUR using a Pacman compatible AUR helper
       community.general.pacman:
