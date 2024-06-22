@@ -30,11 +30,12 @@
 
     - name: Clone "yay" repository
       ansible.builtin.git: 
-        dest: /usr/share/yay_repo
+        dest: ~/Projects/yay
         repo: https://aur.archlinux.org/yay.git
+      become: false
 
     - name: Install "yay"
-      ansible.builtin.command: chdir=/usr/share/yay_repo makepkg --noconfirm -si        
+      ansible.builtin.command: chdir=~/Projects/yay makepkg --noconfirm -si        
       become: false
 
     - name: Install "alacritty" terminal emulator
