@@ -1,0 +1,33 @@
+---
+- name: Install packages
+  hosts: local
+  tags: prereqs
+  
+  tasks:
+  - name: Install packages for "Archlinux"
+    block:
+
+    - name: Update and upgrade
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+
+    - name: Install "gnome"
+      community.general.pacman:
+        name: gnome
+        state: present
+
+    - name: Enable gnome desktop manager
+      ansible.builtin.systemd_service:
+        name: gdm.service
+        state: started
+        enabled: true
+
+    - name: Insall "i3" tiling window manager
+      community.general.pacman:
+        name: i3
+        state: latest
+
+    become: yes
+    become_user: root
+    when: ansible_os_family == "Archlinux"
