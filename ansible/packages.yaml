@@ -17,6 +17,12 @@ archlinux:
       description: Install GNU "stow" symlink farm manager
     - name: neovim
       description: Install "neovim" text editor
+    - name: lsd
+      description: Install "lsd" replacement for ls
+    - name: lazygit
+      description: Install "lazygit" for graphical interaction in terminal
+    - name: fzf
+      description: Install "fzf" for fuzzy finding 
     yay:
     - name: hyprland
       description: Install "hyprland" tiling window manager

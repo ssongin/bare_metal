@@ -12,7 +12,7 @@ style = "Regular"
 [window]
 startup_mode = "Windowed"
 dynamic_padding = true
-opacity = 0.96
+opacity = 0.99
 
 [window.padding]
 x = 6
