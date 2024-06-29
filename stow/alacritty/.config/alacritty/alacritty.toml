@@ -1,3 +1,10 @@
 import = [
     "~/.config/alacritty/themes/themes/tokyo-night.toml"
 ]
+
+[font]
+size = 7
+
+[font.normal]
+family = "0xProto Nerd Font"
+style = "Regular"
