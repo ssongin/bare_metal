@@ -43,3 +43,9 @@ stow --target="$HOME" nvim
 ```console
 stow --target="$HOME" tmux
 ```
+
+### Alacritty 
+
+```console
+stow --target="$HOME" alacritty
+```

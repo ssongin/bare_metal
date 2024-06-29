@@ -9,6 +9,8 @@ archlinux:
       description: Install "base-devel" package
     - name: alacritty
       description: Install "alacritty" terminal emulator
+    - name: starship
+      description: Install "starship" customizable command prompt
     - name: tmux
       description: Install "tmux" terminal multiplexer
     - name: stow
