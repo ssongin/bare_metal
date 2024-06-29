@@ -8,3 +8,12 @@ size = 7
 [font.normal]
 family = "0xProto Nerd Font"
 style = "Regular"
+
+[window]
+startup_mode = "Windowed"
+dynamic_padding = true
+opacity = 0.9
+
+[window.padding]
+x = 6
+y = 0
