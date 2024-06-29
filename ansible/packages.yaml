@@ -1,0 +1,23 @@
+archlinux:
+  packages:
+    - name: gnome
+      description: Install "gnome" desktop environment
+      state: latest
+    - name: polkit-gnome
+      description: Install "polkit-gnome" authentication framework
+      state: latest
+    - name: base-devel
+      description: Install "base-devel" package
+      state: latest
+    - name: alacritty
+      description: Install "alacritty" terminal emulator
+      state: latest
+    - name: tmux
+      description: Install "tmux" terminal multiplexer
+      state: latest
+    - name: stow
+      description: Install GNU "stow" symlink farm manager
+      state: latest
+    - name: neovim
+      description: Install "neovim" text editor
+      state: latest
