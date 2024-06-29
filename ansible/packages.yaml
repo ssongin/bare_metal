@@ -1,5 +1,6 @@
 archlinux:
   packages:
+    pacman:
     - name: gnome
       description: Install "gnome" desktop environment
       state: latest
@@ -20,4 +21,14 @@ archlinux:
       state: latest
     - name: neovim
       description: Install "neovim" text editor
+      state: latest
+    yay:
+    - name: hyprland
+      description: Install "hyprland" package from AUR using a Pacman compatible AUR helper
+      state: latest
+    - name: hyprpaper
+      description: Install "hyprpaper" package from AUR using a Pacman compatible AUR helper
+      state: latest
+    - name: yazi
+      description: Install "yazi" file manager
       state: latest

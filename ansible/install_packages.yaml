@@ -14,16 +14,11 @@
         update_cache: true
         upgrade: true
 
-    - name: "{{ item.description }}"
+    - name: "Pacman: Install packages"
       community.general.pacman:
         name: "{{ item.name }}"
         state: "{{ item.state }}"
-      loop: "{{ archlinux.packages }}"
-
-    # - name: Install "gnome" desktop environment
-    #   community.general.pacman:
-    #     name: gnome
-    #     state: latest
+      loop: "{{ archlinux.packages.pacman }}"
 
     - name: Enable gnome desktop manager
       ansible.builtin.systemd_service:
@@ -31,72 +26,30 @@
         state: started
         enabled: true
 
-    # - name: Install "base-devel" package
-    #   community.general.pacman:
-    #     name: base-devel
-    #     state: latest
+    - name: Check if yay is present
+      ansible.builtin.command: yay --version
+      register: yay_version
+      become: false
 
     - name: Clone "yay" repository
       ansible.builtin.git: 
         dest: ~/Projects/yay
         repo: https://aur.archlinux.org/yay.git
       become: false
-
-    - name: Check if yay is present
-      ansible.builtin.command: yay --version
-      register: yay_version
-      become: false
+      when: not yay_version.stdout is regex('^yay\s\w\d+\.\d+\.\d+\s-\s\w+\s\w\d+\.\d+\.\d+$')
 
     - name: Install "yay"
       ansible.builtin.command: chdir=~/Projects/yay makepkg --noconfirm -si        
       become: false
       when: not yay_version.stdout is regex('^yay\s\w\d+\.\d+\.\d+\s-\s\w+\s\w\d+\.\d+\.\d+$')
 
-    - name: Install "hyprland" package from AUR using a Pacman compatible AUR helper
+    - name: "Yay: Install packages"
       community.general.pacman:
         name: hyprland
         state: latest
         executable: yay
         extra_args: --builddir /var/cache/yay
-
-    - name: Install "hyprpaper" package from AUR using a Pacman compatible AUR helper
-      community.general.pacman:
-        name: hyprpaper
-        state: latest
-        executable: yay
-        extra_args: --builddir /var/cache/yay
-
-    # - name: Install "polkit-gnome" authentication framework
-    #   community.general.pacman:
-    #     name: polkit-gnome
-    #     state: latest
-    
-    # - name: Install "alacritty" terminal emulator
-    #   community.general.pacman:
-    #     name: alacritty
-    #     state: latest
-
-    # - name: Install "tmux" terminal multiplexer
-    #   community.general.pacman:
-    #     name: "tmux"
-    #     state: latest
-
-    # - name: Install GNU "stow" symlink farm manager
-    #   community.general.pacman:
-    #     name: stow
-    #     state: latest
-
-    # - name: Install "neovim" text editor
-    #   community.general.pacman:
-    #     name: neovim
-    #     state: latest
-
-    - name: Install "yazi" file manager
-      community.general.pacman:
-        name: yazi
-        state: latest
-        executable: yay
-        extra_args: --builddir /var/cache/yay
+      loop: "{{ archlinux.packages.yay }}"
 
     become: yes
     become_user: root
