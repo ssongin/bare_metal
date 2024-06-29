@@ -49,3 +49,9 @@ stow --target="$HOME" tmux
 ```console
 stow --target="$HOME" alacritty
 ```
+
+### Starship 
+
+```console
+stow --target="$HOME" starship
+```
