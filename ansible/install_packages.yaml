@@ -37,6 +37,13 @@
         extra_args: --builddir /var/cache/yay
       loop: "{{ archlinux.packages.yay }}"
 
+    - name: Init starship
+      ansible.builtin.lineinfile:
+        path: ~/.bashrc
+        regexp: '^eval "\$\(starship-init bash\)"'
+        line: eval "$(starship-init bash)"
+      become: false
+
     become: yes
     become_user: root
     when: ansible_os_family == "Archlinux"
