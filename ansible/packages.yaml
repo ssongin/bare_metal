@@ -3,32 +3,22 @@ archlinux:
     pacman:
     - name: gnome
       description: Install "gnome" desktop environment
-      state: latest
     - name: polkit-gnome
       description: Install "polkit-gnome" authentication framework
-      state: latest
     - name: base-devel
       description: Install "base-devel" package
-      state: latest
     - name: alacritty
       description: Install "alacritty" terminal emulator
-      state: latest
     - name: tmux
       description: Install "tmux" terminal multiplexer
-      state: latest
     - name: stow
       description: Install GNU "stow" symlink farm manager
-      state: latest
     - name: neovim
       description: Install "neovim" text editor
-      state: latest
     yay:
     - name: hyprland
-      description: Install "hyprland" package from AUR using a Pacman compatible AUR helper
-      state: latest
+      description: Install "hyprland" tiling window manager
     - name: hyprpaper
-      description: Install "hyprpaper" package from AUR using a Pacman compatible AUR helper
-      state: latest
+      description: Install "hyprpaper" wallpaper manager for hyprland
     - name: yazi
       description: Install "yazi" file manager
-      state: latest
