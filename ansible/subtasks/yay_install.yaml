@@ -5,6 +5,7 @@
       ansible.builtin.command: yay --version
       register: yay_version
       become: false
+      ignore_errors: true
 
     - name: Install  yay if missing
       block: 
