@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo -e "\nInstalling pythonspipx package\n"
-pacman -S --noconfirm python-pipx
+sudo pacman -S --noconfirm python-pipx
 
 echo -e "\nInstalling git package\n"
 sudo pacman -S --noconfirm  git -y
