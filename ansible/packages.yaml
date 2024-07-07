@@ -24,9 +24,19 @@ archlinux:
     - name: fzf
       description: Install "fzf" for fuzzy finding 
     yay:
-    - name: hyprland
-      description: Install "hyprland" tiling window manager
-    - name: hyprpaper
-      description: Install "hyprpaper" wallpaper manager for hyprland
+    # - name: hyprland
+    #   description: Install "hyprland" tiling window manager
+    # - name: hyprpaper
+    #   description: Install "hyprpaper" wallpaper manager for hyprland
     - name: yazi
       description: Install "yazi" file manager
+    - name: ttf-meslo-nerd
+      description: Install "ttf-meslo-nerd" fonts
+    - name: picom
+      description: Install "picom" a lightweight compositor for X11
+    - name: polybar
+      description: Install "polybar" status bar for i3
+    - name: feh
+      description: Install "feh" a lightweight image viewer
+    - name: rofi
+      description: Install "rofi" a window switcher, application launcher.

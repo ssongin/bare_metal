@@ -32,26 +32,4 @@ ansible-playbook install_packages.yaml --ask-become-pass
 For dotfiles is used GNU stow. It creates synlinks from repo to provided places
 Change directory to stow. Run commands:
 
-### Neovim
-
-```console
-stow --target="$HOME" nvim
-```
-
-### Tmux
-
-```console
-stow --target="$HOME" tmux
-```
-
-### Alacritty 
-
-```console
-stow --target="$HOME" alacritty
-```
-
-### Starship 
-
-```console
-stow --target="$HOME" starship
-```
+Execute copy_all.sh from stow folder to sync all stow files.

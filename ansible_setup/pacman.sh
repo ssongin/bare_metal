@@ -17,4 +17,5 @@ echo -e "\nCreate \"Projects\" directory\n"
 mkdir ~/Projects
 
 echo -e "\nClone this (Bare metal) repo\n"
+cd ~/Projects
 git clone --recurse-submodules https://github.com/ssongin/bare_metal.git
