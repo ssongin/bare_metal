@@ -25,6 +25,10 @@ archlinux:
       description: Install "fzf" for fuzzy finding 
     - name: thunderbird
       description: Install "thunderbird" mail, news and chat client from Mozilla
+    - name: keepass
+      description: Install "keepass" pasword manager
+    - name: calibre
+      description: Install "calibre" e-book management system
     yay:
     - name: yazi
       description: Install "yazi" file manager
@@ -38,5 +42,5 @@ archlinux:
       description: Install "feh" a lightweight image viewer
     - name: rofi
       description: Install "rofi" a window switcher, application launcher
-    - name: google-chrome
-      description: Install "google-chrome" browser
+    # - name: google-chrome
+    #   description: Install "google-chrome" browser
