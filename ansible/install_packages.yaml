@@ -29,6 +29,13 @@
     - name: Install yay
       ansible.builtin.include_tasks: subtasks/yay_install.yaml
 
+    - name: Update and upgrade yay
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+        executable: yay
+        extra_args: --builddir /var/cache/yay
+
     - name: "Yay: Install packages"
       community.general.pacman:
         name: "{{ item.name }}"

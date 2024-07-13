@@ -6,6 +6,7 @@
       register: yay_version
       become: false
       ignore_errors: true
+      changed_when: false
 
     - name: Install  yay if missing
       block: 

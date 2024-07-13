@@ -26,10 +26,6 @@ archlinux:
     - name: thunderbird
       description: Install "thunderbird" mail, news and chat client from Mozilla
     yay:
-    # - name: hyprland
-    #   description: Install "hyprland" tiling window manager
-    # - name: hyprpaper
-    #   description: Install "hyprpaper" wallpaper manager for hyprland
     - name: yazi
       description: Install "yazi" file manager
     - name: ttf-meslo-nerd
