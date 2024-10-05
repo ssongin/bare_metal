@@ -3,6 +3,20 @@ archlinux:
     pacman:
     - name: gnome
       description: Install "gnome" desktop environment
+    - name: gnome-tweaks
+      description: Install "gnome-tweaks"
+    - name: gdm
+      description: Install "gdm" greeter
+    - name: dolphin
+    - name: dunst
+    - name: grim
+    - name: hyprland
+    - name: polkit-kde-agent
+    - name: qt5-wayland
+    - name: qt6-wayland
+    - name: slurp
+    - name: wofi
+    - name: xdg-desktop-portal-hyprland
     - name: polkit-gnome
       description: Install "polkit-gnome" authentication framework
     - name: base-devel
@@ -49,6 +63,22 @@ archlinux:
       description: Install "virtualbox" hypervisor
     - name: vagrant
       description: Install "vagrant" virtual environment manager
+    - name: libreoffice-fresh
+      description: Install "libreoffice-fresh" office suite applications
+    - name: vlc 
+      description: Install "vlc" media player
+    - name: gimp
+      description: Install "gimp" image editor
+    - name: cmus
+      description: Install "cmus" console audio player
+    - name: nvm
+      description: Install "nvm" node version manager
+    - name: npm
+      description: Install "npm" node packet manager
+    - name: nodejs 
+      description: Install "nodejs" js runtime
+    - name: go
+      description: Install "go" compiler and development tools
     yay:
     - name: yazi
       description: Install "yazi" file manager
