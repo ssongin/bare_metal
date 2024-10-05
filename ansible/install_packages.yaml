@@ -15,7 +15,6 @@
         state: present
         regexp: '^#\[multilib\]'
         line: '[multilib]'
-      notify: update pacman
 
     - name: Enable multilib include line in pacman.conf
       lineinfile:
@@ -23,7 +22,6 @@
         state: present
         regexp: '^#Include = /etc/pacman.d/mirrorlist'
         line: 'Include = /etc/pacman.d/mirrorlist'
-      notify: update pacman
 
     - name: Update and upgrade
       community.general.pacman:
