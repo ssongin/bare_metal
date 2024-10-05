@@ -73,10 +73,6 @@ archlinux:
       description: Install "krita" image editor
     - name: cmus
       description: Install "cmus" console audio player
-    - name: steam
-      description: Install "steam" game distribution service
-    - name: nvm
-      description: Install "nvm" node version manager
     - name: npm
       description: Install "npm" node packet manager
     - name: nodejs 
@@ -98,6 +94,10 @@ archlinux:
       description: Install "feh" a lightweight image viewer
     - name: rofi
       description: Install "rofi" a window switcher, application launcher
+    - name: steam
+      description: Install "steam" game distribution service
+    - name: nvm
+      description: Install "nvm" node version manager
     # - name: google-chrome
     #   description: Install "google-chrome" browser
   services:
