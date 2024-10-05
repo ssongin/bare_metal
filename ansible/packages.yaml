@@ -41,6 +41,14 @@ archlinux:
       description: Install "docker" container service
     - name: docker-compose
       description: Install "docker-compose" container manager
+    - name: telegram-desktop
+      description: Install "telegram-desktop" messenger service
+    - name: discord
+      description: Install "discord" messenger service
+    - name: virtualbox
+      description: Install "virtualbox" hypervisor
+    - name: vagrant
+      description: Install "vagrant" virtual environment manager
     yay:
     - name: yazi
       description: Install "yazi" file manager
@@ -61,3 +69,5 @@ archlinux:
       description: Enable gnome desktop manager
     - name: docker.service
       description: Enable docker service
+    - name: vboxdrv
+      description: Enable virtual box service
