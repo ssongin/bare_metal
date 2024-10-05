@@ -20,12 +20,6 @@
         state: "{{ item.state | default('latest') }}"
       loop: "{{ archlinux.packages.pacman }}"
 
-    - name: Enable gnome desktop manager
-      ansible.builtin.systemd_service:
-        name: gdm.service
-        state: started
-        enabled: true
-
     - name: Install yay
       ansible.builtin.include_tasks: subtasks/yay_install.yaml
 
@@ -43,6 +37,13 @@
         executable: yay
         # extra_args: --builddir /var/cache/yay
       loop: "{{ archlinux.packages.yay }}"
+
+    - name: Enable services
+      ansible.builtin.systemd_service:
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('started') }}"
+        enabled: "{{ item.state | default('true') | bool}}"
+      loop: "{{ archlinux.services }}"
 
     - name: Init starship
       ansible.builtin.lineinfile:

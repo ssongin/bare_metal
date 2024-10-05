@@ -9,6 +9,10 @@ archlinux:
       description: Install "base-devel" package
     - name: alacritty
       description: Install "alacritty" terminal emulator
+    - name: kitty
+      description: Install "kitty" terminal emulator
+    - name: pipewire
+      description: Install "pipewire" audio and video stream handler
     - name: starship
       description: Install "starship" customizable command prompt
     - name: tmux
@@ -29,6 +33,14 @@ archlinux:
       description: Install "keepass" pasword manager
     - name: calibre
       description: Install "calibre" e-book management system
+    - name: firefox
+      description: Install "firefox" web browser
+    - name: rsync
+      description: Install "rsync" sinchronization utility
+    - name: docker
+      description: Install "docker" container service
+    - name: docker-compose
+      description: Install "docker-compose" container manager
     yay:
     - name: yazi
       description: Install "yazi" file manager
@@ -44,3 +56,8 @@ archlinux:
       description: Install "rofi" a window switcher, application launcher
     # - name: google-chrome
     #   description: Install "google-chrome" browser
+  services:
+    - name: gdm.service
+      description: Enable gnome desktop manager
+    - name: docker.service
+      description: Enable docker service
