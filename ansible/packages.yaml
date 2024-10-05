@@ -69,8 +69,12 @@ archlinux:
       description: Install "vlc" media player
     - name: gimp
       description: Install "gimp" image editor
+    - name: krita
+      description: Install "krita" image editor
     - name: cmus
       description: Install "cmus" console audio player
+    - name: steam
+      description: Install "steam" game distribution service
     - name: nvm
       description: Install "nvm" node version manager
     - name: npm
@@ -79,6 +83,8 @@ archlinux:
       description: Install "nodejs" js runtime
     - name: go
       description: Install "go" compiler and development tools
+    - name: sqlitebrowser 
+      description: Install "sqlitebrowser" sqlite db browser
     yay:
     - name: yazi
       description: Install "yazi" file manager
