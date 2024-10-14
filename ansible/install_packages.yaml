@@ -3,9 +3,28 @@
   hosts: local
   tags: prereqs
   vars_files:
-  - packages.yaml
+  - properties.yaml
   
   tasks:
+  - name: Create groups
+    ansible.builtin.group:
+      name: "{{ name }}"
+      system: "{{ system | default('false') | bool }}"
+    loop: "{{ archlinux.groups }}"
+
+  - name: Create users
+    ansible.builtin.user:
+    loop: "{{ archlinux.users }}"
+
+  - name: Create directories
+    ansible.builtin.file:
+      path: "{{ path }}"
+      state: "{{ state | default('directory') }}"
+      mode: "{{ mode | default('0660') }}"
+      owner: "{{ owner }}"
+      group: "{{ group }}"
+    loop: "{{ archlinux.directories }}"
+
   - name: Install packages for "Archlinux"
     block:
 
