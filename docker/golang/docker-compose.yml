@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./src:/projects
+      - /src:/projects
     ports:
       - "3000-4000:3000-4000"
     container_name: go-lab

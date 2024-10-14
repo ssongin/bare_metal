@@ -8,21 +8,28 @@
   tasks:
   - name: Create groups
     ansible.builtin.group:
-      name: "{{ name }}"
-      system: "{{ system | default('false') | bool }}"
+      name: "{{ item.name }}"
+      system: "{{ item.system | default('false') | bool }}"
     loop: "{{ archlinux.groups }}"
 
   - name: Create users
     ansible.builtin.user:
+      name: "{{ item.name }}"
+      comment: "{{ item.comment }}"
+      append: "{{ item.append | default('false') | bool }}"
+      group: "{{ item.group }}"
+      groups: "{{ item.groups }}"
+      create_home: "{{ item.create_home | default('false') | bool }}"
+      system: "{{ item.system | default('true') | bool }}"  
     loop: "{{ archlinux.users }}"
 
   - name: Create directories
     ansible.builtin.file:
-      path: "{{ path }}"
-      state: "{{ state | default('directory') }}"
-      mode: "{{ mode | default('0660') }}"
-      owner: "{{ owner }}"
-      group: "{{ group }}"
+      path: "{{ item.path }}"
+      state: "{{ item.state | default('directory') }}"
+      mode: "{{ item.mode | default('0660') }}"
+      owner: "{{ item.owner }}"
+      group: "{{ item.group }}"
     loop: "{{ archlinux.directories }}"
 
   - name: Install packages for "Archlinux"

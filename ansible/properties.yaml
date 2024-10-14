@@ -2,15 +2,18 @@ archlinux:
   groups:
     - name: g_gitlab
     - name: g_docker_services
+    - name: g_projects
   users:
     - name: docker_services
       comment: System user to docker services
-      append: false
       group: g_docker_services
       groups: g_gitlab
-      create_home: false
-      system: true
   directories:
+    - path: /src
+      description: Projects Directory
+      owner: root
+      group: g_projects
+      mode: 0770
     - path: /srv/gitlab
       description: GitLab Home Directory
       owner: root
