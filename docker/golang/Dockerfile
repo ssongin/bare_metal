@@ -5,7 +5,7 @@ ENV GO111MODULE=on \
     PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 
 # Install: git, bash, curl, and air
-RUN apk add --no-cache git bash curl && \
+RUN apk add --no-cache git bash curl lazygit && \
     go install github.com/cosmtrek/air@latest
 
 WORKDIR /projects

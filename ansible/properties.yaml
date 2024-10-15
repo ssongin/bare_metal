@@ -146,5 +146,3 @@ archlinux:
       description: Enable gnome desktop manager
     - name: docker.service
       description: Enable docker service
-    - name: vboxdrv
-      description: Enable virtual box service
