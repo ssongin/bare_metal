@@ -130,3 +130,6 @@
         regexp: '^eval "\$\(starship init bash\)"'
         line: eval "$(starship init bash)"
       become: false
+
+    become: yes
+    become_user: root
