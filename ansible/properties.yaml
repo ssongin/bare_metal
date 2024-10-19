@@ -7,7 +7,7 @@ archlinux:
     - name: docker_services
       comment: System user to docker services
       group: g_docker_services
-      groups: g_gitlab docker
+      groups: g_gitlab,docker
   directories:
     - path: /src
       description: Projects Directory
