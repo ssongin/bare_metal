@@ -6,6 +6,58 @@
   - properties.yaml
   
   tasks:
+  - name: Install packages for "Archlinux"
+    block:
+
+    - name: Enable multilib repository in pacman.conf
+      lineinfile:
+        path: /etc/pacman.conf
+        state: present
+        regexp: '^#\[multilib\]'
+        line: '[multilib]'
+
+    - name: Enable multilib include line in pacman.conf
+      lineinfile:
+        path: /etc/pacman.conf
+        state: present
+        regexp: '^#Include = /etc/pacman.d/mirrorlist'
+        line: 'Include = /etc/pacman.d/mirrorlist'
+
+    - name: Update and upgrade
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+
+    - name: "Pacman: Install packages"
+      community.general.pacman:
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('latest') }}"
+      loop: "{{ archlinux.packages.pacman }}"
+      loop_control:
+        label: "{{ item.description }}"
+
+    - name: Install yay
+      ansible.builtin.include_tasks: subtasks/yay_install.yaml
+
+    - name: Update and upgrade yay
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+        executable: yay
+        # extra_args: --builddir /var/cache/yay
+
+    - name: "Yay: Install packages"
+      community.general.pacman:
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('latest') }}"
+        executable: yay
+        # extra_args: --builddir /var/cache/yay
+      loop: "{{ archlinux.packages.yay }}"
+
+    become: yes
+    become_user: root
+    when: ansible_os_family == "Archlinux"
+
   - name: Configure groups, users, access
     block:
     - name: Create groups
@@ -36,58 +88,41 @@
     become: yes
     become_user: root
 
-  - name: Install packages for "Archlinux"
+  - name: Copy files
+    block:
+      - name: Copy docker files
+        ansible.builtin.copy:
+          src: "{{ item.src }}"
+          dest: "{{ item.dest }}"
+          owner: "{{ item.owner }}"
+          group: "{{ item.group }}"
+          mode: "{{ item.mode | default('0640') }}"
+        loop: "{{ archlinux.files }}"
+    become: yes
+    become_user: root
+
+  - name: Configure services
     block:
 
-    - name: Enable multilib repository in pacman.conf
-      lineinfile:
-        path: /etc/pacman.conf
-        state: present
-        regexp: '^#\[multilib\]'
-        line: '[multilib]'
+    - name: Generate systemd services from templates
+      ansible.builtin.template:
+        src: templates/docker-compose-service.j2
+        dest: /etc/systemd/system/{{ item.name }}.service
+        mode: '0644'
+      loop: "{{ archlinux.services.template }}"
+      loop_control:
+        label: "{{ item.name }}"
 
-    - name: Enable multilib include line in pacman.conf
-      lineinfile:
-        path: /etc/pacman.conf
-        state: present
-        regexp: '^#Include = /etc/pacman.d/mirrorlist'
-        line: 'Include = /etc/pacman.d/mirrorlist'
-
-    - name: Update and upgrade
-      community.general.pacman:
-        update_cache: true
-        upgrade: true
-
-    - name: "Pacman: Install packages"
-      community.general.pacman:
-        name: "{{ item.name }}"
-        state: "{{ item.state | default('latest') }}"
-      loop: "{{ archlinux.packages.pacman }}"
-
-    - name: Install yay
-      ansible.builtin.include_tasks: subtasks/yay_install.yaml
-
-    - name: Update and upgrade yay
-      community.general.pacman:
-        update_cache: true
-        upgrade: true
-        executable: yay
-        # extra_args: --builddir /var/cache/yay
-
-    - name: "Yay: Install packages"
-      community.general.pacman:
-        name: "{{ item.name }}"
-        state: "{{ item.state | default('latest') }}"
-        executable: yay
-        # extra_args: --builddir /var/cache/yay
-      loop: "{{ archlinux.packages.yay }}"
+    - name: Issue systemd daemon-reload to pick up config changes
+      ansible.builtin.systemd_service:
+        daemon_reload: true
 
     - name: Enable services
       ansible.builtin.systemd_service:
         name: "{{ item.name }}"
         state: "{{ item.state | default('started') }}"
         enabled: "{{ item.state | default('true') | bool}}"
-      loop: "{{ archlinux.services }}"
+      loop: "{{ archlinux.services.execute }}"
 
     - name: Init starship
       ansible.builtin.lineinfile:
@@ -95,7 +130,3 @@
         regexp: '^eval "\$\(starship init bash\)"'
         line: eval "$(starship init bash)"
       become: false
-
-    become: yes
-    become_user: root
-    when: ansible_os_family == "Archlinux"

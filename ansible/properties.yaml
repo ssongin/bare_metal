@@ -7,13 +7,17 @@ archlinux:
     - name: docker_services
       comment: System user to docker services
       group: g_docker_services
-      groups: g_gitlab
+      groups: g_gitlab docker
   directories:
     - path: /src
       description: Projects Directory
       owner: root
       group: g_projects
-      mode: 0770
+      mode: '0770'
+    - path: /srv/golang-lab
+      description: Docker files for golang environment applications
+      owner: docker_services
+      group: g_docker_services
     - path: /srv/gitlab
       description: GitLab Home Directory
       owner: root
@@ -30,6 +34,15 @@ archlinux:
       description: Stores GitLab configuration files
       owner: root
       group: g_gitlab
+  files:
+    - src: files/golang/Dockerfile
+      dest: /srv/golang-lab/Dockerfile
+      owner: docker_services
+      group: g_docker_services
+    - src: files/golang/docker-compose.yml
+      dest: /srv/golang-lab/docker-compose.yml
+      owner: docker_services
+      group: g_docker_services
   packages:
     pacman:
     - name: gnome
@@ -142,7 +155,14 @@ archlinux:
     # - name: google-chrome
     #   description: Install "google-chrome" browser
   services:
+    execute:
     - name: gdm.service
       description: Enable gnome desktop manager
     - name: docker.service
       description: Enable docker service
+    template:
+    - name: golang-lab
+      template_path: 
+      description: "Docker Compose Service for Golang Tools"
+      user: docker_services
+      working_directory: /srv/golang-lab
