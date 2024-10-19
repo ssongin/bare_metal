@@ -162,7 +162,7 @@ archlinux:
       description: Enable docker service
     template:
     - name: golang-lab
-      template_path: 
+      template_path: templates/docker-compose-service.j2
       description: "Docker Compose Service for Golang Tools"
       user: docker_services
       working_directory: /srv/golang-lab

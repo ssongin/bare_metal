@@ -106,12 +106,12 @@
 
     - name: Generate systemd services from templates
       ansible.builtin.template:
-        src: templates/docker-compose-service.j2
+        src: "{{ item.template_path }}"
         dest: /etc/systemd/system/{{ item.name }}.service
         mode: '0644'
       loop: "{{ archlinux.services.template }}"
       loop_control:
-        label: "{{ item.name }}"
+        label: "{{ item.description }}"
 
     - name: Issue systemd daemon-reload to pick up config changes
       ansible.builtin.systemd_service:
