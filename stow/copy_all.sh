@@ -3,8 +3,14 @@
 echo -e "\nLinking alacritty\n"
 stow --target="$HOME" alacritty
 
+echo -e "\Linking hyprland\n"
+stow --target="$HOME" hyprland
+
 echo -e "\nLinking i3\n"
 stow --target="$HOME" i3
+
+echo -e "\nLinking kitty\n"
+stow --target="$HOME" kitty
 
 echo -e "\nLinking nvim\n"
 stow --target="$HOME" nvim
@@ -23,6 +29,9 @@ stow --target="$HOME" starship
 
 echo -e "\nLinking tmux\n"
 stow --target="$HOME" tmux
+
+echo -e "\Linking waybar\n"
+stow --target="$HOME" waybar
 
 echo -e "\nLinking private\n"
 stow --target="$HOME" private

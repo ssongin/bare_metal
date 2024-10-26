@@ -82,6 +82,12 @@ archlinux:
       description: Install "xdg-desktop-portal-hyprland" an XDG Desktop Portal backend for Hyprland
     - name: polkit-gnome
       description: Install "polkit-gnome" authentication framework
+    - name: waybar
+      description: Instlall "waybar" wayland bar for sway
+    - name: swaync
+      description: Install "swaync" notification window
+    - name: hyprpaper
+      description: Install "hyprpaper" wallpaper for hyprland
     - name: base-devel
       description: Install "base-devel" package
     - name: alacritty

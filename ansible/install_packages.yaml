@@ -53,6 +53,8 @@
         executable: yay
         # extra_args: --builddir /var/cache/yay
       loop: "{{ archlinux.packages.yay }}"
+      loop_control:
+        label: "{{ item.description }}"
 
     become: yes
     become_user: root
@@ -76,6 +78,8 @@
         create_home: "{{ item.create_home | default('false') | bool }}"
         system: "{{ item.system | default('true') | bool }}"  
       loop: "{{ archlinux.users }}"
+      loop_control:
+        label: "{{ item.comment }}"
 
     - name: Create directories
       ansible.builtin.file:
@@ -85,6 +89,8 @@
         owner: "{{ item.owner | default('root') }}"
         group: "{{ item.group }}"
       loop: "{{ archlinux.directories }}"
+      loop_control: 
+        label: "{{ item.description }}"  
     become: yes
     become_user: root
 
@@ -123,6 +129,8 @@
         state: "{{ item.state | default('started') }}"
         enabled: "{{ item.state | default('true') | bool}}"
       loop: "{{ archlinux.services.execute }}"
+      loop_control:
+        label: "{{ item.description }}"
 
     - name: Init starship
       ansible.builtin.lineinfile:
