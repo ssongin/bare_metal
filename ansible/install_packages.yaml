@@ -82,7 +82,7 @@
         path: "{{ item.path }}"
         state: "{{ item.state | default('directory') }}"
         mode: "{{ item.mode | default('0660') }}"
-        owner: "{{ item.owner }}"
+        owner: "{{ item.owner | default('root') }}"
         group: "{{ item.group }}"
       loop: "{{ archlinux.directories }}"
     become: yes

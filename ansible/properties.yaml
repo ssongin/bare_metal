@@ -3,36 +3,40 @@ archlinux:
     - name: g_gitlab
     - name: g_docker_services
     - name: g_projects
+    - name: g_shared_directory
   users:
-    - name: docker_services
+    - name: u_remote_directories
+      comment: System user to own and sync directories
+      group: g_shared_directory
+      groups:
+    - name: u_docker_services
       comment: System user to docker services
       group: g_docker_services
       groups: g_gitlab,docker
   directories:
-    - path: /src
+    - path: /shared
+      description: Shared Directory
+      group: g_shared_directory
+      mode: '0774'
+    - path: /shared/src
       description: Projects Directory
-      owner: root
       group: g_projects
       mode: '0770'
     - path: /srv/golang-lab
       description: Docker files for golang environment applications
-      owner: docker_services
+      owner: u_docker_services
       group: g_docker_services
     - path: /srv/gitlab
       description: GitLab Home Directory
-      owner: root
       group: g_gitlab
     - path: /srv/gitlab/data
       description: Stores GitLab application data
-      owner: root
       group: g_gitlab
     - path: /srv/gitlab/logs
       description: Stores GitLab logs
-      owner: root
       group: g_gitlab
     - path: /srv/gitlab/config
       description: Stores GitLab configuration files
-      owner: root
       group: g_gitlab
   files:
     - src: files/golang/Dockerfile
