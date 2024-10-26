@@ -22,6 +22,11 @@ archlinux:
       description: Projects Directory
       group: g_projects
       mode: '0770'
+    - path: /shared/cloud
+      description: Cloud directories
+      owner: u_remote_directories
+      group: g_shared_directory
+      mode: '0774'
     - path: /srv/golang-lab
       description: Docker files for golang environment applications
       owner: u_docker_services
