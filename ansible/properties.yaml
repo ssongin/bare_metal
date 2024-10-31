@@ -46,11 +46,11 @@ archlinux:
   files:
     - src: files/golang/Dockerfile
       dest: /srv/golang-lab/Dockerfile
-      owner: docker_services
+      owner: u_docker_services
       group: g_docker_services
     - src: files/golang/docker-compose.yml
       dest: /srv/golang-lab/docker-compose.yml
-      owner: docker_services
+      owner: u_docker_services
       group: g_docker_services
   packages:
     pacman:
