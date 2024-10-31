@@ -152,8 +152,6 @@ archlinux:
       description: Install "go" compiler and development tools
     - name: sqlitebrowser 
       description: Install "sqlitebrowser" sqlite db browser
-    - name: yay
-      description: Install "yay" AUR helper
     yay:
     - name: yazi
       description: Install "yazi" file manager
