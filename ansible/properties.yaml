@@ -94,8 +94,6 @@ archlinux:
       description: Install "alacritty" terminal emulator
     - name: kitty
       description: Install "kitty" terminal emulator
-    - name: anydesk
-      description: Install "anydesk" remote control
     - name: pipewire
       description: Install "pipewire" audio and video stream handler
     - name: starship
@@ -154,6 +152,8 @@ archlinux:
       description: Install "go" compiler and development tools
     - name: sqlitebrowser 
       description: Install "sqlitebrowser" sqlite db browser
+    - name: yay
+      description: Install "yay" AUR helper
     yay:
     - name: yazi
       description: Install "yazi" file manager
@@ -167,6 +167,8 @@ archlinux:
       description: Install "feh" a lightweight image viewer
     - name: rofi
       description: Install "rofi" a window switcher, application launcher
+#    - name: anydesk-bin
+#      description: Install "anydesk-bin" remote control
     # - name: nvm
     #   description: Install "nvm" node version manager
     # - name: google-chrome
