@@ -54,12 +54,12 @@ archlinux:
       group: g_docker_services
   packages:
     pacman:
-    - name: gnome
-      description: Install "gnome" desktop environment
-    - name: gnome-tweaks
-      description: Install "gnome-tweaks"
-    - name: gdm
-      description: Install "gdm" greeter
+#    - name: gnome
+#      description: Install "gnome" desktop environment
+#    - name: gnome-tweaks
+#      description: Install "gnome-tweaks"
+#    - name: gdm
+#      description: Install "gdm" greeter
     - name: dolphin
       description: Install "dolphin" KDE's file manager
     - name: dunst
@@ -80,8 +80,8 @@ archlinux:
       description: Install "wofi" application launcher
     - name: xdg-desktop-portal-hyprland
       description: Install "xdg-desktop-portal-hyprland" an XDG Desktop Portal backend for Hyprland
-    - name: polkit-gnome
-      description: Install "polkit-gnome" authentication framework
+#    - name: polkit-gnome
+#      description: Install "polkit-gnome" authentication framework
     - name: waybar
       description: Instlall "waybar" wayland bar for sway
     - name: swaync
@@ -94,6 +94,8 @@ archlinux:
       description: Install "alacritty" terminal emulator
     - name: kitty
       description: Install "kitty" terminal emulator
+    - name: anydesk
+      description: Install "anydesk" remote control
     - name: pipewire
       description: Install "pipewire" audio and video stream handler
     - name: starship
@@ -171,8 +173,8 @@ archlinux:
     #   description: Install "google-chrome" browser
   services:
     execute:
-    - name: gdm.service
-      description: Enable gnome desktop manager
+#    - name: gdm.service
+#      description: Enable gnome desktop manager
     - name: docker.service
       description: Enable docker service
     template:

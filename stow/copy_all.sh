@@ -33,5 +33,8 @@ stow --target="$HOME" tmux
 echo -e "\Linking waybar\n"
 stow --target="$HOME" waybar
 
+echo -e "\Linking wofi\n"
+stow --target="$HOME" wofi
+
 echo -e "\nLinking private\n"
 stow --target="$HOME" private
