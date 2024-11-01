@@ -52,6 +52,10 @@ archlinux:
       dest: /srv/golang-lab/docker-compose.yml
       owner: u_docker_services
       group: g_docker_services
+    - src: files/gitlab/docker-compose.yml
+      dest: /srv/gitlab/docker-compose.yml
+      owner: u_docker_services
+      group: g_docker_services
   packages:
     pacman:
 #    - name: gnome
@@ -118,8 +122,10 @@ archlinux:
       description: Install "calibre" e-book management system
     - name: firefox
       description: Install "firefox" web browser
-    - name: rsync
-      description: Install "rsync" sinchronization utility
+    - name: rclone
+      description: Install "rclone" sinchronization utility
+    - name: qbittorrent
+      description: Install "qbittorrent" torrent transfer application
     - name: docker
       description: Install "docker" container service
     - name: docker-compose
@@ -128,6 +134,8 @@ archlinux:
       description: Install "telegram-desktop" messenger service
     - name: discord
       description: Install "discord" messenger service
+    - name: virtualbox-host-modules-arch
+      description: Install "virtualbox-host-modules-arch" kernel interaction modules
     - name: virtualbox
       description: Install "virtualbox" hypervisor
     - name: vagrant
@@ -138,6 +146,8 @@ archlinux:
       description: Install "vlc" media player
     - name: gimp
       description: Install "gimp" image editor
+    - name: code
+      description: Install Visual "code" text editor
     - name: krita
       description: Install "krita" image editor
     - name: cmus
@@ -177,9 +187,16 @@ archlinux:
 #      description: Enable gnome desktop manager
     - name: docker.service
       description: Enable docker service
+    - name: gitlab.service
+      description: Enable gitlab service
     template:
     - name: golang-lab
       template_path: templates/docker-compose-service.j2
       description: "Docker Compose Service for Golang Tools"
-      user: docker_services
+      user: u_docker_services
       working_directory: /srv/golang-lab
+    - name: gitlab
+      template_path: templates/docker-compose-service.j2
+      description: "Docker Compose Service for Gitlab local instance"
+      user: u_docker_services
+      working_directory: /srv/gitlab

@@ -1,5 +1,9 @@
 # Initial Bare Metal installation
 
+## TODO
+
+* docker-compose belongs to root/root, needs to be changed
+
 ## Install Ansible and git
 
 ### Pacman (Arch linux)
