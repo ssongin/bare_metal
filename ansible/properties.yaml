@@ -79,7 +79,9 @@ archlinux:
     - name: qt6-wayland
       description: Install "qt6-wayland" QtWayland platform plugin for Qt6 applications
     - name: slurp
-      description: Install "slurp" cli utility to select a region in a Wayland compositor 
+      description: Install "slurp" cli utility to select a region in a Wayland compositor
+    - name: brightnessctl
+      description: Install "brightnessctl" to change screen brightness
     - name: wofi
       description: Install "wofi" application launcher
     - name: xdg-desktop-portal-hyprland
@@ -162,6 +164,8 @@ archlinux:
       description: Install "go" compiler and development tools
     - name: sqlitebrowser 
       description: Install "sqlitebrowser" sqlite db browser
+    - name: p7zip
+      description: Install "p7zip" compression utility
     yay:
     - name: yazi
       description: Install "yazi" file manager
