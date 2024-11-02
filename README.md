@@ -3,6 +3,12 @@
 ## TODO
 
 * docker-compose belongs to root/root, needs to be changed
+* yay repositories:
+    * rclone-browser
+    * archlinux-tweak-tool-git
+    * anydesk
+    * nvm
+
 
 ## Install Ansible and git
 

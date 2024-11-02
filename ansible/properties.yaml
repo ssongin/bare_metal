@@ -175,10 +175,6 @@ archlinux:
       description: Install "feh" a lightweight image viewer
     - name: rofi
       description: Install "rofi" a window switcher, application launcher
-#    - name: anydesk-bin
-#      description: Install "anydesk-bin" remote control
-    # - name: nvm
-    #   description: Install "nvm" node version manager
     # - name: google-chrome
     #   description: Install "google-chrome" browser
   services:
