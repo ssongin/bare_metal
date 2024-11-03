@@ -30,11 +30,14 @@ stow --target="$HOME" starship
 echo -e "\nLinking tmux\n"
 stow --target="$HOME" tmux
 
-echo -e "\Linking waybar\n"
+echo -e "\nLinking waybar\n"
 stow --target="$HOME" waybar
 
-echo -e "\Linking wofi\n"
+echo -e "\nLinking wofi\n"
 stow --target="$HOME" wofi
+
+echo -e "\nLinking pomodoro\n"
+stow --target="$HOME" pomodoro
 
 echo -e "\nLinking private\n"
 stow --target="$HOME" private
