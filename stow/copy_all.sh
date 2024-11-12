@@ -1,43 +1,14 @@
 #!/bin/bash
 
-echo -e "\nLinking alacritty\n"
-stow --target="$HOME" alacritty
+stow_folders=(  alacritty hyprland i3 kitty nvim picom polybar rofi starship tmux 
+                waybar wofi pomodoro xdg private )
 
-echo -e "\Linking hyprland\n"
-stow --target="$HOME" hyprland
+link_files () {
+    echo -e "\nLinking $1\n"
+    stow --target="$HOME" $1
+}
 
-echo -e "\nLinking i3\n"
-stow --target="$HOME" i3
-
-echo -e "\nLinking kitty\n"
-stow --target="$HOME" kitty
-
-echo -e "\nLinking nvim\n"
-stow --target="$HOME" nvim
-
-echo -e "\nLinking picom\n"
-stow --target="$HOME" picom
-
-echo -e "\nLinking polybar\n"
-stow --target="$HOME" polybar
-
-echo -e "\nLinking rofi\n"
-stow --target="$HOME" rofi
-
-echo -e "\nLinking starship\n"
-stow --target="$HOME" starship
-
-echo -e "\nLinking tmux\n"
-stow --target="$HOME" tmux
-
-echo -e "\nLinking waybar\n"
-stow --target="$HOME" waybar
-
-echo -e "\nLinking wofi\n"
-stow --target="$HOME" wofi
-
-echo -e "\nLinking pomodoro\n"
-stow --target="$HOME" pomodoro
-
-echo -e "\nLinking private\n"
-stow --target="$HOME" private
+for i in "${stow_folders[@]}"
+do
+	link_files $i
+done

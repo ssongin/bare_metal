@@ -2,28 +2,60 @@
 @import url("catppuccin-mocha.css");
 
 #waybar {
-    background-color: @crust;
+    background-color: transparent;
     color: @text;
-    font-family: "SF Mono Regular", "JetBrainsMono Nerd Font",monospace;
-    font-size: 16px;
+    font-family: "MesloLGS Nerd Font Mono";
+    font-size: 14px;
     /* border-bottom: 1px solid @surface0; */
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 /* Space first and last modules evenly */
 .modules-right:last-child { margin-right: 5px; }
 .modules-left:first-child { margin-left: 5px; }
 
-/* Make all the NF icons bigger */
+/* Add hyprland default border */
+#custom-keyboard,
+#pomo,
+#clock,
+#sys-info,
+#custom-notification
+{
+    background:
+    linear-gradient(@mantle, @mantle) padding-box,
+    linear-gradient(
+        45deg, 
+        rgba(51, 204, 255, 238),
+        rgba(00, 255, 153, 238)
+    ) border-box;
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 4px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
 #battery,
+#backlight,
+#pulseaudio {
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+
+/* Make all the NF icons bigger */
+/* #battery, */
 #sys-info,
 #custom-notification,
-#pulseaudio,
-#backlight,
+/* #pulseaudio,
+#backlight, */
 #custom-power-button,
 #custom-keyboard,
 #custom-pomo-icon
+/* #pomo */
 {
-    font-size: 18px;
+    font-size: 12px;
+    /* vertical-align: middle; */
 }
 
 /* Active and inactive states */
@@ -43,13 +75,14 @@
 
 /* Selecting every widget "group" */
 #workspaces,
-#battery,
+/* #battery, */
 box.modules-right > box.horizontal,
 #custom-notification,
 #sys-info,
 #custom-power-button,
 #custom-keyboard,
-#pomo
+#pomo,
+#clock
 {
     background-color: @mantle;
     /* border: red solid 1px; */
@@ -77,26 +110,27 @@ box.modules-right > box.horizontal,
   color: @mantle;
   padding-right: 12px;
   padding-left: 10px;
-  border-radius: 4px 0px 0px 4px;
+  border-radius: 2px 0px 0px 2px;
 }
 #custom-pomo-label {
   border-radius: 0px 4px 4px 0px;
+  background-color: @mantle;
 }
-#custom-pomo-label.running {
+/* #custom-pomo-label.running { */
   /* background: @red; */
-  background-color: alpha(@red, 0.1);
-  color: @red;
-}
-#custom-pomo-label.paused {
+  /* background-color: alpha(@red, 0.1); */
+  /* color: @red;
+} */
+/* #custom-pomo-label.paused { */
   /* background: @blue; */
-  background-color: alpha(@blue, 0.1);
-  color: @blue;
-}
-#custom-pomo-label.finished {
+  /* background-color: alpha(@blue, 0.1); */
+  /* color: @blue;
+} */
+/* #custom-pomo-label.finished { */
   /* background: @green; */
-  background-color: alpha(@green, 0.1);
-  color: @green;
-}
+  /* background-color: alpha(@green, 0.1); */
+  /* color: @green;
+} */
 #custom-pomo-icon.running {
   background: @red;
 }
@@ -176,6 +210,12 @@ box.modules-right > box.horizontal,
     margin-right: 5px;
 } */
 
+#battery {
+    margin: 0px;
+    padding: 0px;
+}
+
+
 /* Wifi module spaced away from bluetooth*/
 #network,
 #bluetooth
@@ -191,13 +231,13 @@ box.modules-right > box.horizontal,
 }
 
 #backlight {
-    font-size: 16px;
+    /* font-size: 16px;
     margin-right: 5px;
-    margin-left: 7px;
+    margin-left: 7px; */
 }
 #pulseaudio {
-    font-size: 20px;
-    margin-right: 10px;
+    /* font-size: 20px;
+    margin-right: 10px; */
 }
 #pulseaudio.bluetooth {
     color: @blue;
@@ -240,14 +280,20 @@ box.modules-right > box.horizontal,
 
 /* Styling the clock */
 #clock.date {
-    font-size: 14px;
+    /* font-size: 14px; */
     font-weight: normal;
-    margin-left: 8px;
 }
 #clock.time {
-    padding: 0px;
-    font-weight: 500;
-    font-size: 20px;
+    /* padding: 0px; */
+    font-weight: 900;
+    /* font-size: 20px; */
+}
+
+#clock.time,
+#clock.date {
+    background: @mantle;
+    padding: 0px; 
+    margin: 0px;
 }
 
 /* Styling tooltips */

@@ -1,24 +1,19 @@
 {
   "battery": {
     "bat": "BAT0",
-    "format": "{icon}<span size='10pt'><b>{capacity}</b></span>",
-    "format-critical": "<span font_family='JetBrainsMono Nerd Font' color='#f38ba8'>{icon}</span><small><b>{capacity}</b></small>",
-    "format-good": "<span font_family='JetBrainsMono Nerd Font' color='#a6e3a1'>{icon}</span><small><b>{capacity}</b></small>",
-    "format-icons": [
-      "󰛞 󱢠 󱢠 󱢠 󱢠 ",
-      "󰣐 󱢠 󱢠 󱢠 󱢠 ",
-      "󰣐 󰛞 󱢠 󱢠 󱢠 ",
-      "󰣐 󰣐 󱢠 󱢠 󱢠 ",
-      "󰣐 󰣐 󰛞 󱢠 󱢠 ",
-      "󰣐 󰣐 󰣐 󱢠 󱢠 ",
-      "󰣐 󰣐 󰣐 󰛞 󱢠 ",
-      "󰣐 󰣐 󰣐 󰣐 󱢠 ",
-      "󰣐 󰣐 󰣐 󰣐 󰛞 ",
-      "󰣐 󰣐 󰣐 󰣐 󰣐 "
-    ],
+    "format": "{icon}{capacity}%",
+    "format-critical": "<span color='#f38ba8'>{icon}<small> </small></span>{capacity}%",
+    "format-warning": "<span color='#f9e2af'>{icon}<small> </small></span>{capacity}%",
+    "format-good": "<span color='#a6e3a1'>{icon}<small> </small></span>{capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "<span foreground='#B1E3AD'><small> </small></span>{capacity}%",
+    "format-plugged": "<span foreground='#B1E3AD'><small> </small></span>{capacity}%",
+    "format-alt": "<span foreground='#B1E3AD'>{icon}</span><small> </small>{time}",
+    "format-full": "<span foreground='#B1E3AD'></span><small> </small>{capacity}%",
+
     "format-time": "{H}hr & {m}min",
-    "format-warning": "<span font_family='JetBrainsMono Nerd Font' color='#f9e2af'>{icon}</span><small><b>{capacity}</b></small>",
-    "interval": 60,
+    
+    "interval": 30,
     "max-length": 25,
     "states": {
       "critical": 15,
@@ -62,10 +57,10 @@
     },
     "format": "{:%A, %b %e}",
     "interval": 43200,
-    "tooltip-format": "<span color='#cdd6f4' font='Roboto Mono 14'><small>{calendar}</small></span>"
+    "tooltip-format": "<span color='#cdd6f4' font='MesloLGS Nerd Font Mono 14'><small>{calendar}</small></span>"
   },
   "clock#time": {
-    "format": "{:%OI<small><span color='#9399b2'>:</span></small>%OM<span size='4pt'> </span><span weight='bold' size='10pt' color='#9399b2'>%p</span>}",
+    "format": "{:%OI<small><span color='#9399b2'>:</span></small>%OM<span size='4pt'> </span><span weight='bold' size='8pt' color='#9399b2'>%p</span>}",
     "interval": 60
   },
   "custom/notification": {
@@ -111,8 +106,9 @@
     "modules": [
       "network",
       "bluetooth",
-      "group/volume",
-      "group/brightness"
+      "pulseaudio",
+      "backlight",
+      "battery"
     ],
     "orientation": "horizontal"
   },
@@ -149,7 +145,7 @@
     "on-scroll-down": "hyprctl dispatch workspace e+1",
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "persistent-workspaces": {
-      "*": 5
+      "*": 3
     }
   },
   "network": {
@@ -173,8 +169,8 @@
     "tooltip-format-disconnected": "interface: {ifname}\nconnected to {essid}\nat {signalStrength}% strength"
   },
   "pulseaudio": {
-    "format": "{icon}",
-    "format-bluetooth": "{icon}",
+    "format": "{icon}<small> </small>{volume}%",
+    "format-bluetooth": "{icon}<small> </small>{volume}%",
     "format-icons": {
       "default": [
         "󰕿",
@@ -186,7 +182,7 @@
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-sink-mute 0 toggle",
     "scroll-step": 1,
-    "tooltip-format": "{desc}\t{icon}{volume}%"
+    "tooltip-format": "{desc}\t{icon}  {volume}%"
   },
   "pulseaudio/slider": {
     "max": 100,
@@ -198,8 +194,8 @@
   },
   "backlight": {
     "device": "intel_backlight",
-    "format": "{icon}",
-    "tooltip-format": "{icon}{percent}%",
+    "format": "{icon}<small> </small>{percent}%",
+    "tooltip-format": "{icon}   {percent}%",
     "format-icons": ["󰃞","󰃝","󰃟","󰃠"]
   },
   "backlight/slider": {
@@ -208,14 +204,9 @@
     "orientation": "horizontal",
     "device": "intel_backlight"
   },
-  "custom/power-button": {
-    "format": "",
-    "on-click": "wlogout",
-    "tooltip": false
-  },
   "image": {
     "tooltip": false,
-    "path": "/home/denji/.config/waybar/avatar.png",
+    "path": "/home/stanislav/.config/waybar/avatar.png",
     "size": 47
   },
   "custom/keyboard": {
