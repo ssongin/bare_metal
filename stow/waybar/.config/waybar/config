@@ -8,5 +8,5 @@
   "include": ["~/.config/waybar/modules.json"],
   "modules-left": ["hyprland/workspaces", "group/pomo"],
   "modules-center": ["group/clock"],
-  "modules-right": ["group/hard-info", "group/sys-info","tray","custom/notification"]
+  "modules-right": ["group/hard-info", "group/sys-info","tray"]
 }

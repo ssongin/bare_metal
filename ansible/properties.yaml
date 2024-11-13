@@ -199,8 +199,6 @@ archlinux:
       description: Install "feh" a lightweight image viewer
     - name: rofi
       description: Install "rofi" a window switcher, application launcher
-    # - name: google-chrome
-    #   description: Install "google-chrome" browser
   services:
     execute:
 #    - name: gdm.service
