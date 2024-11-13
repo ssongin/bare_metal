@@ -1,0 +1,79 @@
+### old
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
+    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
+  },
+
+### new
+
+"battery": {
+    "bat": "BAT0",
+    "format": "{icon}<span size='10pt'><b>{capacity}</b></span>",
+    "format-critical": "<span font_family='MesloLFS Nerd Font Mono' color='#f38ba8'>{icon}</span><small><b>{capacity}</b></small>",
+    "format-good": "<span font_family='MesloLFS Nerd Font Mono' color='#a6e3a1'>{icon}</span><small><b>{capacity}</b></small>",
+    "format-icons": [
+      "󰛞 󱢠 󱢠 󱢠 󱢠 ",
+      "󰣐 󱢠 󱢠 󱢠 󱢠 ",
+      "󰣐 󰛞 󱢠 󱢠 󱢠 ",
+      "󰣐 󰣐 󱢠 󱢠 󱢠 ",
+      "󰣐 󰣐 󰛞 󱢠 󱢠 ",
+      "󰣐 󰣐 󰣐 󱢠 󱢠 ",
+      "󰣐 󰣐 󰣐 󰛞 󱢠 ",
+      "󰣐 󰣐 󰣐 󰣐 󱢠 ",
+      "󰣐 󰣐 󰣐 󰣐 󰛞 ",
+      "󰣐 󰣐 󰣐 󰣐 󰣐 "
+    ],
+    "format-time": "{H}hr & {m}min",
+    "format-warning": "<span font_family='MesloLFS Nerd Font Mono' color='#f9e2af'>{icon}</span><small><b>{capacity}</b></small>",
+    "interval": 60,
+    "max-length": 25,
+    "states": {
+      "critical": 15,
+      "good": 100,
+      "warning": 30
+    },
+    "tooltip-format": "{time} (󰚥 plugged), at {capacity}%",
+    "tooltip-format-charging": "{time} (󰢟 charging), at {capacity}%",
+    "tooltip-format-discharging": "{time} (󱧦 discharging), at {capacity}%"
+  },
+
+
+  ### merged
+
+  "battery": {
+    "bat": "BAT0",
+    "format": "{icon}capacity}%",
+    "format-critical": "<span color='#f38ba8'>{icon}</span>{capacity}%",
+    "format-warning": "<span color='#f9e2af'>{icon}</span>{capacity}%",
+    "format-good": "<span color='#a6e3a1'>{icon}</span>{capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "format-charging": "<span foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-full": "<span foreground='#B1E3AD'> </span>{capacity}%",
+
+    "format-time": "{H}hr & {m}min",
+    
+    "interval": 60,
+    "max-length": 25,
+    "states": {
+      "critical": 15,
+      "good": 100,
+      "warning": 30
+    },
+    "tooltip-format": "{time} (󰚥 plugged), at {capacity}%",
+    "tooltip-format-charging": "{time} (󰢟 charging), at {capacity}%",
+    "tooltip-format-discharging": "{time} (󱧦 discharging), at {capacity}%"
+  },

@@ -84,10 +84,14 @@ archlinux:
       description: Install "brightnessctl" to change screen brightness
     - name: wofi
       description: Install "wofi" application launcher
+    - name: xdg-desktop-portal-gtk
+      description: Install "xdg-desktop-portal-gtk" backend implementation using GTK
     - name: xdg-desktop-portal-hyprland
       description: Install "xdg-desktop-portal-hyprland" an XDG Desktop Portal backend for Hyprland
-#    - name: polkit-gnome
-#      description: Install "polkit-gnome" authentication framework
+    - name: polkit-gnome
+      description: Install "polkit-gnome" authentication framework
+    - name: xorg-xhost
+      description: Install "xorg-xhost" server access control program for X
     - name: waybar
       description: Instlall "waybar" wayland bar for sway
     - name: swaync
@@ -96,6 +100,22 @@ archlinux:
       description: Install "hyprpaper" wallpaper for hyprland
     - name: base-devel
       description: Install "base-devel" package
+    - name: less
+      description: Install "less" pager
+    - name: gparted
+      description: Install "gparted" partition tools software
+    - name: gpart
+      description: Install "gpart" storage scanner
+    - name: nilfs-utils
+      description: Install "nilfs-utils" log structured file system
+    - name: jfsutils
+      description: Install "jfsutils" jfs file system utilities
+    - name: ntfsprogs
+      description: Install "ntfsprogs" utilities for managing ntfs
+    - name: reiserfsprogs
+      description: Install "reiserfsprogs" reiserfs utilities
+    - name: xfsprogs
+      description: Install "xfsprogs" xfs filesystem utilities
     - name: alacritty
       description: Install "alacritty" terminal emulator
     - name: kitty
@@ -179,8 +199,6 @@ archlinux:
       description: Install "feh" a lightweight image viewer
     - name: rofi
       description: Install "rofi" a window switcher, application launcher
-    # - name: google-chrome
-    #   description: Install "google-chrome" browser
   services:
     execute:
 #    - name: gdm.service

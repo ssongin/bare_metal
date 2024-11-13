@@ -8,7 +8,7 @@
     * archlinux-tweak-tool-git
     * anydesk
     * nvm
-
+    * mission-center
 
 ## Install Ansible and git
 
