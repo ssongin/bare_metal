@@ -6,7 +6,7 @@
   "margin": "0px 0px 0px 0px",
 
   "include": ["~/.config/waybar/modules.json"],
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "group/pomo"],
   "modules-center": ["group/clock"],
-  "modules-right": ["group/pomo", "custom/keyboard", "group/sys-info","tray","custom/notification"]
+  "modules-right": ["group/hard-info", "group/sys-info","tray","custom/notification"]
 }
