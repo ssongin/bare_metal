@@ -2,6 +2,7 @@ archlinux:
   groups:
     - name: g_gitlab
     - name: g_portainer
+    - name: g_grafana
     - name: g_docker_services
     - name: g_projects
     - name: g_shared_directory
@@ -13,7 +14,7 @@ archlinux:
     - name: u_docker_services
       comment: System user to docker services
       group: g_docker_services
-      groups: g_gitlab,g_portainer,docker
+      groups: g_gitlab,g_portainer,g_grafana,docker
   directories:
     - path: /shared
       description: Shared Directory
@@ -28,8 +29,18 @@ archlinux:
       owner: u_remote_directories
       group: g_shared_directory
       mode: '0774'
+    - path: /srv/grafana
+      description: Docker files for Grafana application
+      owner: u_docker_services
+      group: g_grafana
+      mode: '0777'
+    - path: /srv/grafana/data
+      description: Stores Grafana application data
+      owner: u_docker_services
+      group: g_grafana
+      mode: '0777'
     - path: /srv/portainer
-      description: Docker files for portainer application
+      description: Docker files for Portainer application
       owner: u_docker_services
       group: g_portainer
     - path: /srv/portainer/data
@@ -45,14 +56,21 @@ archlinux:
       group: g_gitlab
     - path: /srv/gitlab/data
       description: Stores GitLab application data
-      group: g_gitlab
+      group: root # gitlab changes automatically
+      mode: '0755' # gitlab changes automatically
     - path: /srv/gitlab/logs
       description: Stores GitLab logs
-      group: g_gitlab
+      group: root # gitlab changes automatically
+      mode: '0755' # gitlab changes automatically
     - path: /srv/gitlab/config
       description: Stores GitLab configuration files
-      group: g_gitlab
+      group: root # gitlab changes automatically
+      mode: '0775' # gitlab changes automatically
   files:
+    - src: files/grafana/docker-compose.yml
+      dest: /srv/grafana/docker-compose.yml
+      owner: u_docker_services
+      group: g_docker_services
     - src: files/portainer/docker-compose.yml
       dest: /srv/portainer/docker-compose.yml
       owner: u_docker_services
@@ -217,11 +235,13 @@ archlinux:
 #    - name: gdm.service
 #      description: Enable gnome desktop manager
     - name: docker.service
-      description: Enable docker service
+      description: Enable Docker service
     - name: gitlab.service
-      description: Enable gitlab service
+      description: Enable Gitlab service
     - name: portainer.service
-      description: Enable portainer service
+      description: Enable Portainer service
+    - name: grafana.service
+      description: Enable Grafane service
     template:
     - name: golang-lab
       template_path: templates/docker-compose-service.j2
@@ -238,3 +258,8 @@ archlinux:
       description: "Docker Compose Service for Portainer application"
       user: u_docker_services
       working_directory: /srv/portainer
+    - name: grafana
+      template_path: templates/docker-compose-service.j2
+      description: "Docker Compose Service for Grafana application"
+      user: u_docker_services
+      working_directory: /srv/grafana
