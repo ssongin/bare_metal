@@ -1,6 +1,7 @@
 archlinux:
   groups:
     - name: g_gitlab
+    - name: g_portainer
     - name: g_docker_services
     - name: g_projects
     - name: g_shared_directory
@@ -12,7 +13,7 @@ archlinux:
     - name: u_docker_services
       comment: System user to docker services
       group: g_docker_services
-      groups: g_gitlab,docker
+      groups: g_gitlab,g_portainer,docker
   directories:
     - path: /shared
       description: Shared Directory
@@ -27,6 +28,14 @@ archlinux:
       owner: u_remote_directories
       group: g_shared_directory
       mode: '0774'
+    - path: /srv/portainer
+      description: Docker files for portainer application
+      owner: u_docker_services
+      group: g_portainer
+    - path: /srv/portainer/data
+      description: Stores Portainer application data
+      owner: u_docker_services
+      group: g_portainer
     - path: /srv/golang-lab
       description: Docker files for golang environment applications
       owner: u_docker_services
@@ -44,6 +53,10 @@ archlinux:
       description: Stores GitLab configuration files
       group: g_gitlab
   files:
+    - src: files/portainer/docker-compose.yml
+      dest: /srv/portainer/docker-compose.yml
+      owner: u_docker_services
+      group: g_docker_services
     - src: files/golang/Dockerfile
       dest: /srv/golang-lab/Dockerfile
       owner: u_docker_services
@@ -207,6 +220,8 @@ archlinux:
       description: Enable docker service
     - name: gitlab.service
       description: Enable gitlab service
+    - name: portainer.service
+      description: Enable portainer service
     template:
     - name: golang-lab
       template_path: templates/docker-compose-service.j2
@@ -218,3 +233,8 @@ archlinux:
       description: "Docker Compose Service for Gitlab local instance"
       user: u_docker_services
       working_directory: /srv/gitlab
+    - name: portainer
+      template_path: templates/docker-compose-service.j2
+      description: "Docker Compose Service for Portainer application"
+      user: u_docker_services
+      working_directory: /srv/portainer

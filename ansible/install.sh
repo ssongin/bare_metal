@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook install_packages.yaml --ask-become-pass
+ansible-playbook configure_system.yaml --ask-become-pass
