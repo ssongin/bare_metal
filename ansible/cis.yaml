@@ -1,0 +1,11 @@
+---
+- name: Configure and Install System
+  hosts: local
+  become: yes
+
+  roles:
+    # - role: config_role
+    #   tags: [configure]
+
+    - role: install_packages
+      tags: [install]

@@ -1,0 +1,17 @@
+---
+
+- name: Pacman configuration script
+  block:
+  - name: Enable multilib repository in pacman.conf
+    lineinfile:
+      path: /etc/pacman.conf
+      state: present
+      regexp: '^#\[multilib\]'
+      line: '[multilib]'
+
+  - name: Enable multilib include line in pacman.conf
+    lineinfile:
+      path: /etc/pacman.conf
+      state: present
+      regexp: '^#Include = /etc/pacman.d/mirrorlist'
+      line: 'Include = /etc/pacman.d/mirrorlist'

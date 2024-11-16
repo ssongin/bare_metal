@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook configure_system.yaml --ask-become-pass
+ansible-playbook cis.yaml --ask-become-pass

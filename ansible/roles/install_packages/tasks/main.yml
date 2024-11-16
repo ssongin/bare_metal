@@ -1,0 +1,43 @@
+---
+- name: Install packages for "Archlinux"
+  block:
+
+    - name: Configure Pacman
+      ansible.builtin.include_tasks: archlinux/pacman_configuration.yaml
+
+    - name: Update and upgrade
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+
+    - name: "Pacman: Install packages"
+      community.general.pacman:
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('latest') }}"
+      loop: "{{ archlinux.pacman }}"
+      loop_control:
+        label: "{{ item.description }}"
+
+    - name: Install yay
+      ansible.builtin.include_tasks: archlinux/yay_install.yaml
+
+    - name: Update and upgrade yay
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+        executable: yay
+        # extra_args: --builddir /var/cache/yay
+
+    - name: "Yay: Install packages"
+      community.general.pacman:
+        name: "{{ item.name }}"
+        state: "{{ item.state | default('latest') }}"
+        executable: yay
+        # extra_args: --builddir /var/cache/yay
+      loop: "{{ archlinux.yay }}"
+      loop_control:
+        label: "{{ item.description }}"
+
+  become: yes
+  become_user: root
+  when: ansible_os_family == "Archlinux"
