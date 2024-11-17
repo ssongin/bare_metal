@@ -104,6 +104,8 @@ archlinux:
     description: Install "virtualbox" hypervisor
   - name: vagrant
     description: Install "vagrant" virtual environment manager
+  - name: kubectl
+    description: Install "kubectl" console tool for Kubernetes API management
   - name: libreoffice-fresh
     description: Install "libreoffice-fresh" office suite applications
   - name: vlc 

@@ -4,8 +4,5 @@
   become: yes
 
   roles:
-    # - role: config_role
-    #   tags: [configure]
-
     - role: install_packages
       tags: [install]
