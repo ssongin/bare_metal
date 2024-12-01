@@ -9,6 +9,8 @@
     * anydesk
     * nvm
     * mission-center
+    * cisco packet tracer packettracer
+    * hyprshot
 
 ## Install Ansible and git
 
