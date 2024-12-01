@@ -26,6 +26,7 @@
         update_cache: true
         upgrade: true
         executable: yay
+      become: false
         # extra_args: --builddir /var/cache/yay
 
     - name: "Yay: Install packages"
