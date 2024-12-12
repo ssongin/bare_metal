@@ -6,6 +6,12 @@ archlinux:
 #      description: Install "gnome-tweaks"
 #    - name: gdm
 #      description: Install "gdm" greeter
+  - name: zsh
+    description: Install "zsh" shell 
+  - name: zsh-completions
+    description: Install "zsh-completions" for autocomplete in z shell
+  - name: neofetch
+    description: Install "neofetch" cli system information tool
   - name: dolphin
     description: Install "dolphin" KDE's file manager
   - name: dunst
@@ -145,6 +151,8 @@ archlinux:
     description: Install "yazi" file manager
   - name: ttf-meslo-nerd
     description: Install "ttf-meslo-nerd" fonts
+  - name: ttf-dejavu
+    description: Install "ttf-dejavu" fonts for powerlevel10k
   - name: picom
     description: Install "picom" a lightweight compositor for X11
   - name: polybar

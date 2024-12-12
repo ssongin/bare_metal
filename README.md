@@ -3,6 +3,7 @@
 ## TODO
 
 * docker-compose belongs to root/root, needs to be changed
+* change user shell from bash to zsh
 * yay repositories:
     * rclone-browser
     * archlinux-tweak-tool-git
@@ -11,6 +12,14 @@
     * mission-center
     * cisco packet tracer packettracer
     * hyprshot
+    * ttf-meslo-nerd-font-powerlevel10k 
+* git applications:
+    * oh-my-zsh
+* oh-my-zsh plugins:
+    * git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    * git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+* oh-my-zsh themes:
+    * git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 
 ## Install Ansible and git
 
