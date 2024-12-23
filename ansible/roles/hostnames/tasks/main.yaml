@@ -1,0 +1,19 @@
+---
+- name: Manage hostnames on servers
+  become: true
+  block:
+    
+    - name: Display current hostname
+      ansible.builtin.debug:
+        msg: "Current hostname for {{ inventory_hostname }}: {{ ansible_hostname }}"
+
+    - name: Change hostname
+      ansible.builtin.hostname:
+        name: "{{ inventory_hostname }}"
+
+    - name: Re-fetch facts to verify hostname change
+      ansible.builtin.setup:
+
+    - name: Verify updated hostname
+      ansible.builtin.debug:
+        msg: "Updated hostname for {{ inventory_hostname }}: {{ ansible_hostname }}"

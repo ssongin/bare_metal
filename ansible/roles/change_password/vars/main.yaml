@@ -1,0 +1,6 @@
+---
+# Username whose password will be updated
+target_user: "your_username"
+
+# Plaintext password (hashed during execution)
+new_password: "your_secure_password"

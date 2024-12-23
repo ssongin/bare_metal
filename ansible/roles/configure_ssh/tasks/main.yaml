@@ -1,0 +1,38 @@
+---
+- name: Configure key only access via ssh
+  become: true
+  block:
+
+  - name: Ensure .ssh directory exists
+    ansible.builtin.file:
+      path: "{{ ansible_user_dir }}/.ssh"
+      state: directory
+      mode: '0700'
+      owner: "{{ ansible_user }}"
+      group: "{{ ansible_user }}"
+
+  - name: Add SSH public key to authorized_keys
+    ansible.builtin.lineinfile:
+      path: "{{ ansible_user_dir }}/.ssh/authorized_keys"
+      line: "{{ ssh_public_key }}"
+      state: present
+      create: yes
+      mode: '0600'
+      owner: "{{ ansible_user }}"
+      group: "{{ ansible_user }}"
+
+  - name: Disable password authentication in SSH config
+    ansible.builtin.lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: '^#?PasswordAuthentication'
+      line: 'PasswordAuthentication no'
+      state: present
+    notify: Restart SSH
+
+  - name: Ensure PubkeyAuthentication is enabled
+    ansible.builtin.lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: '^#?PubkeyAuthentication'
+      line: 'PubkeyAuthentication yes'
+      state: present
+    notify: Restart SSH

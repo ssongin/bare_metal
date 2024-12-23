@@ -1,0 +1,17 @@
+---
+- name: Configure and Install Cluster
+  hosts: all
+  become: yes
+
+  roles:
+    - role: hostnames
+      tags: [hostname]
+
+    - role: configure_ssh
+      tags: [ssh]
+
+    - role: change_password
+      tags: [password]
+
+    # - role: install_packages
+    #   tags: [install]

@@ -2,6 +2,17 @@
 
 ## TODO
 
+* move out dotfiles to separate repository
+* ansible roles changes required
+    * change_password
+        * move out username
+        * move out password
+    * configure_ssh
+        * requires testing
+        * move out public ssh
+    * install_packages
+        * instead of installing all packages change to install groups of packages
+* separate ansible inventories required with variables
 * docker-compose belongs to root/root, needs to be changed
 * change user shell from bash to zsh
 * yay repositories:
