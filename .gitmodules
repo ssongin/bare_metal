@@ -1,6 +1,0 @@
-[submodule "stow/tmux/.tmux/plugins/tpm"]
-	path = stow/tmux/.tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm.git
-[submodule "stow/alacritty/.config/alacritty/themes"]
-	path = stow/alacritty/.config/alacritty/themes
-	url = https://github.com/alacritty/alacritty-theme.git
