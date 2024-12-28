@@ -100,6 +100,8 @@ archlinux:
     description: Install "rclone" sinchronization utility
   - name: qbittorrent
     description: Install "qbittorrent" torrent transfer application
+  - name: podman
+    description: Install "podman" container service
   - name: docker
     description: Install "docker" container service
   - name: docker-compose

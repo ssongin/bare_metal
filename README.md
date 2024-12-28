@@ -1,5 +1,9 @@
 # Initial Bare Metal installation
 
+## Passwords
+
+root/root
+
 ## TODO
 
 * move out dotfiles to separate repository
@@ -24,6 +28,7 @@
     * cisco packet tracer packettracer
     * hyprshot
     * ttf-meslo-nerd-font-powerlevel10k 
+    * docker-desktop
 * git applications:
     * oh-my-zsh
 * oh-my-zsh plugins:
@@ -57,11 +62,3 @@ ansible-playbook system_info.yaml
 ```console
 ansible-playbook install_packages.yaml --ask-become-pass
 ```
-
-## Sync dotfiles
-
-### Description
-For dotfiles is used GNU stow. It creates synlinks from repo to provided places
-Change directory to stow. Run commands:
-
-Execute copy_all.sh from stow folder to sync all stow files.
