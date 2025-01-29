@@ -1,6 +1,6 @@
-  - name: Yay installation script
-    block:
-    
+- name: Yay installation script
+  block:
+
     - name: Check if yay is present
       ansible.builtin.command: yay --version
       register: yay_version
@@ -9,16 +9,15 @@
       changed_when: false
 
     - name: Install  yay if missing
-      block: 
-
-      - name: Clone "yay" repository
-        ansible.builtin.git: 
-          dest: ~/Projects/yay
-          repo: https://aur.archlinux.org/yay.git
-        become: false
-
-      - name: Install "yay"
-        ansible.builtin.command: chdir=~/Projects/yay makepkg --noconfirm -si        
-        become: false
-
       when: not yay_version.stdout is regex('^yay\s\w\d+\.\d+\.\d+\s-\s\w+\s\w\d+\.\d+\.\d+$')
+      block:
+
+        - name: Clone "yay" repository
+          ansible.builtin.git:
+            dest: ~/Projects/yay
+            repo: https://aur.archlinux.org/yay.git
+          become: false
+
+        - name: Install "yay"
+          ansible.builtin.command: chdir=~/Projects/yay makepkg --noconfirm -si
+          become: false
