@@ -1,0 +1,28 @@
+---
+all:
+  children:
+    localhost:
+      ansible_connection: local
+
+    k3s_cluster:
+      children:
+        server1:
+          hosts:
+            192.168.0.180:
+              desired_hostname: control1
+        agent:
+          children:
+            agent1:
+              hosts:
+                192.168.0.190:
+                  desired_hostname: agent1
+            agent2:
+              hosts:
+                192.168.0.197:
+                  desired_hostname: agent2
+
+  vars:
+    ansible_port: 22
+    ansible_user: root
+    # ansible_password: root
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"

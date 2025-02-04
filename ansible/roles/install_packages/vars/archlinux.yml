@@ -16,7 +16,7 @@ sdk:
     - name: go
       description: Install "go" compiler and development tools
     - name: sqlitebrowser
-      description: Install "sqlitebrowser" sqlite db browser   
+      description: Install "sqlitebrowser" sqlite db browser
     - name: code
       description: Install Visual "code" text editor
 
@@ -29,7 +29,7 @@ infrastructure:
     - name: docker-compose
       description: Install "docker-compose" container manager
     - name: terraform
-      description: Install "terraform" IaC tool  
+      description: Install "terraform" IaC tool
     - name: virtualbox-host-modules-arch
       description: Install "virtualbox-host-modules-arch" kernel interaction modules
     - name: virtualbox
@@ -41,8 +41,9 @@ infrastructure:
     - name: helm
       description: Install "helm" kubernetes packet manager
     - name: rpi-imager
-      description: Install "rpi-image" to setup raspberry pi images      
-
+      description: Install "rpi-image" to setup raspberry pi images
+    - name: sshpass
+      description: Install "sshpass" utility for ansible remote connection with pass
 terminal:
   pacman:
     - name: kitty
@@ -146,7 +147,7 @@ hyprland:
 desktop:
   pacman:
     - name: thunderbird
-      description: Install "thunderbird" mail, news and chat client from Mozilla    
+      description: Install "thunderbird" mail, news and chat client from Mozilla
     - name: dolphin
       description: Install "dolphin" KDE's file manager
     - name: calibre
@@ -199,9 +200,10 @@ desktop:
     #   description: Install "starship" customizable command prompt
   # yay:
 
-    # - name: polybar
-    #   description: Install "polybar" status bar for i3
-    # - name: feh
-    #   description: Install "feh" a lightweight image viewer
-    # - name: rofi
-    #   description: Install "rofi" a window switcher, application launcher
+  # - name: polybar
+  #   description: Install "polybar" status bar for i3
+  # - name: feh
+  #   description: Install "feh" a lightweight image viewer
+  # - name: rofi
+  #   description: Install "rofi" a window switcher, application launcher
+
