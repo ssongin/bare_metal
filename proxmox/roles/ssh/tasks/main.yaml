@@ -1,0 +1,12 @@
+---
+- name: Remove SSH host keys
+  become: true
+  become_user: root
+  block:
+
+    - name: Delete all SSH host key files
+      ansible.builtin.file:
+        path: "/etc/ssh/{{ item }}"
+        state: absent
+      with_fileglob:
+        - "/etc/ssh/ssh_host_*"

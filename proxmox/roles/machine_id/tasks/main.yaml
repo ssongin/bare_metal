@@ -1,0 +1,22 @@
+---
+- name: Remove Machine ID from template
+  become: true
+  become_user: root
+  block:
+
+    - name: Empty /etc/machine-id
+      ansible.builtin.copy:
+        content: ""
+        dest: /etc/machine-id
+        mode: '0644'
+
+    - name: Remove /var/lib/dbus/machine-id
+      ansible.builtin.file:
+        path: /var/lib/dbus/machine-id
+        state: absent
+
+    - name: Create symlink for machine-id
+      ansible.builtin.file:
+        src: /etc/machine-id
+        dest: /var/lib/dbus/machine-id
+        state: link

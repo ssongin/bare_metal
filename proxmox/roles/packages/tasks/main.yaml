@@ -1,0 +1,11 @@
+---
+- name: Install and update packages for "Ubuntu"
+  become: true
+  become_user: root
+  # when: ansible_os_family == "Ubuntu"
+  # when: ansible_os_family == "Debian"
+  when: ansible_distribution == "Ubuntu"
+  block:
+
+    - name: Run update packages for "Ubuntu"
+      ansible.builtin.include_tasks: ./ubuntu.yaml
