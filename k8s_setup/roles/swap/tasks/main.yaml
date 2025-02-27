@@ -1,0 +1,11 @@
+---
+- name: Disable SWAP
+  become: true
+  block:
+
+    - name: Disable swap permanently, persist reboots
+      ansible.builtin.replace:
+        path: /etc/fstab
+        regexp: '^(\s*)([^#\n]+\s+)(\w+\s+)swap(\s+.*)$'
+        replace: '#\1\2\3swap\4'
+        backup: true

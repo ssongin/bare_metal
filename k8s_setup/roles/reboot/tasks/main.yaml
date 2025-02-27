@@ -1,0 +1,7 @@
+---
+- name: Reboot Virtual Machines
+  become: true
+  block:
+
+    - name: Reboot the machine
+      ansible.builtin.reboot:

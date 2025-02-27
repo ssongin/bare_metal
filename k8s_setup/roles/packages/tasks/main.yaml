@@ -1,0 +1,9 @@
+---
+- name: Install and update packages for "Ubuntu"
+  become: true
+  become_user: root
+  when: ansible_distribution == "Ubuntu"
+  block:
+
+    - name: Update packages
+      ansible.builtin.include_tasks: ubuntu.yaml

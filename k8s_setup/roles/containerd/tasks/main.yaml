@@ -1,0 +1,37 @@
+---
+- name: Configure key only access via ssh
+  become: true
+  block:
+
+    - name: Containerd directory present
+      ansible.builtin.file:
+        path: /etc/containerd
+        state: directory
+        mode: '0644'
+        owner: root
+        group: root
+
+    - name: Check if /etc/containerd/config.toml exists
+      ansible.builtin.stat:
+        path: /etc/containerd/config.toml
+      register: containerd_config
+
+    - name: Generate and write containerd default config if missing
+      ansible.builtin.command:
+        cmd: "containerd config default"
+      register: containerd_default_config
+      when: not containerd_config.stat.exists
+      changed_when: not containerd_config.stat.exists
+
+    - name: Write containerd config file
+      ansible.builtin.copy:
+        dest: /etc/containerd/config.toml
+        content: "{{ containerd_default_config.stdout }}"
+        mode: "0644"
+      when: not containerd_config.stat.exists
+
+    - name: Ensure containerd uses systemd cgroup
+      ansible.builtin.replace:
+        path: /etc/containerd/config.toml
+        regexp: '^\s*SystemdCgroup\s*=\s*false'
+        replace: 'SystemdCgroup = true'

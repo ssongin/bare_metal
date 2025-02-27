@@ -10,3 +10,11 @@
         state: absent
       with_fileglob:
         - "/etc/ssh/ssh_host_*"
+
+    - name: Ensure PubkeyAuthentication is enabled
+      ansible.builtin.lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^#?PubkeyAuthentication'
+        line: 'PubkeyAuthentication yes'
+        state: present
+      notify: Restart SSH

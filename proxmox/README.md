@@ -1,5 +1,9 @@
 # Ansible playbooks for Proxmox
 
+## TODO
+
+* Upload SSH public key
+
 ## Requirements
 
 * Supported machine: Ubuntu

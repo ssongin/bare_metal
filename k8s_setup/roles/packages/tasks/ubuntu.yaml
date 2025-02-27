@@ -1,5 +1,5 @@
 ---
-- name: Make sure required packages are present
+- name: Update and Upgrade System
   become: true
   block:
     - name: Update apt package list
@@ -11,8 +11,12 @@
     - name: Install packages
       ansible.builtin.apt:
         name:
+          - containerd
           - qemu-guest-agent
-          - cloud-init
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
         state: present
     - name: Clean APT cache
       ansible.builtin.apt:
