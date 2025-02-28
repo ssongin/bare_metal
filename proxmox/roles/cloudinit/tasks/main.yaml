@@ -1,0 +1,15 @@
+---
+- name: Cleanup cloud-init
+  become: true
+  become_user: root
+  block:
+
+    - name: Run cloud-init clean
+      ansible.builtin.command:
+        cmd: cloud-init clean
+      changed_when: false  # Avoids marking the task as changed unnecessarily
+
+    - name: Remove cloud-init instances directory
+      ansible.builtin.file:
+        path: /var/lib/cloud/instances
+        state: absent

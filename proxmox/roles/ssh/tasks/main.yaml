@@ -18,3 +18,16 @@
         line: 'PubkeyAuthentication yes'
         state: present
       notify: Restart SSH
+
+    - name: Ensure .ssh directory exists
+      become: false
+      ansible.builtin.file:
+        path: ~/.ssh
+        state: directory
+        mode: '0700'
+
+    - name: Add SSH Public Key to authorized_keys
+      ansible.builtin.authorized_key:
+        user: "{{ ansible_user | default('root') }}"  # Ensure it’s the correct user
+        key: "{{ ssh_public_key }}"
+        state: present

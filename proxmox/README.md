@@ -1,9 +1,5 @@
 # Ansible playbooks for Proxmox
 
-## TODO
-
-* Upload SSH public key
-
 ## Requirements
 
 * Supported machine: Ubuntu
@@ -38,4 +34,6 @@ Currently supported only Ubuntu.
 
 * Cleans APT, installs qemu-guest-agent and cloud-init.
 * Removes SSH keys
+* Uploads new SSH public key
 * Removes Machine ID
+* Cleans cloud-init
