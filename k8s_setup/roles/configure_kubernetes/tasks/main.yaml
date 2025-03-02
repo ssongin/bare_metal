@@ -1,0 +1,14 @@
+---
+- name: Install Kubernetes dependencies
+  ansible.builtin.import_tasks: install_dependencies.yaml
+
+- name: Initialize Kubernetes Control Plane
+  ansible.builtin.import_tasks: init_control_plane.yaml
+  when: "'control' in group_names"
+
+- name: Join Worker Nodes to Cluster
+  ansible.builtin.import_tasks: join_worker_nodes.yaml
+
+- name: Post install actions
+  ansible.builtin.import_tasks: post_actions.yaml
+  when: "'control' in group_names"

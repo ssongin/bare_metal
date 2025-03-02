@@ -1,17 +1,9 @@
 ---
-- name: Make sure required packages are present
+- name: Proxmox package installation
   become: true
   block:
     - name: Load variable file
-      ansible.builtin.include_vars: ubuntu.yaml
-
-    - name: Update apt package list
-      ansible.builtin.apt:
-        update_cache: true
-
-    - name: Upgrade all packages
-      ansible.builtin.apt:
-        upgrade: dist
+      ansible.builtin.include_vars: proxmox.yaml
 
     - name: Install packages
       ansible.builtin.apt:

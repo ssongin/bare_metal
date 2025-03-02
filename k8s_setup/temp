@@ -1,4 +1,6 @@
----
+
+sudo kubeadm init --control-plane-endpoint=10.10.10.10 --node-name k8s-control-1 --pod-network-cidr=10.244.0.0/16
+
 - name: Install and update packages for "Ubuntu"
   become: true
   become_user: root
@@ -7,5 +9,4 @@
   when: ansible_distribution == "Ubuntu"
   block:
 
-    - name: Run update packages for "Ubuntu"
-      ansible.builtin.include_tasks: ./ubuntu.yaml
+

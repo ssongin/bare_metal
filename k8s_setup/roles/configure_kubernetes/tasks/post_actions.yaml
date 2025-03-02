@@ -1,0 +1,27 @@
+---
+- name: Ensure .kube directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.kube"
+    state: directory
+    mode: '0700'
+
+- name: Fetch admin.conf from the control plane node to local controller (config-k8s)
+  ansible.builtin.fetch:
+    src: /etc/kubernetes/admin.conf
+    dest: /tmp/.kube/config-k8s
+    flat: true
+  become: true
+  # become_user: root
+
+- name: Copy config-k8s from local controller to remote node's kube config location
+  ansible.builtin.copy:
+    src: /tmp/.kube/config-k8s"
+    dest: "{{ ansible_env.HOME }}/.kube/config"
+    mode: '0644'
+
+- name: Set the correct ownership for the kube config file
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.kube/config"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+    mode: '0644'

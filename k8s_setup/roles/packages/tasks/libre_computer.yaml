@@ -1,0 +1,17 @@
+- name: Ubuntu Server on Libre Computer specific tasks
+  become: true
+  block:
+    - name: Remove expired Libre Computer GPG key
+      ansible.builtin.command: apt-key del 2E5FB7FC58C58FFB
+      ignore_errors: true
+      become: true
+
+    - name: Download Libre Computer Keyring package
+      ansible.builtin.get_url:
+        url: https://deb.libre.computer/repo/pool/main/libr/libretech-keyring/libretech-keyring_2024.05.19_all.deb
+        dest: /tmp/libretech-keyring_2024.05.19_all.deb
+        mode: '0644'
+
+    - name: Install Libre Computer Keyring package
+      ansible.builtin.apt:
+        deb: /tmp/libretech-keyring_2024.05.19_all.deb

@@ -1,7 +1,13 @@
 ---
+- name: Check if machine is proxmox VM
+  ansible.builtin.debug:
+    msg: "This is not a Proxmox system!"
+  when: not proxmox_vm | default(false) | bool
+
 - name: Cleanup cloud-init
   become: true
   become_user: root
+  when: proxmox_vm
   block:
 
     - name: Run cloud-init clean

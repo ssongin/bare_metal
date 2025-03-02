@@ -1,0 +1,9 @@
+- name: Reload systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+
+- name: Enable and start service
+  ansible.builtin.systemd:
+    name: disable-flow-control
+    enabled: true
+    state: started

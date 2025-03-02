@@ -5,5 +5,13 @@
   when: ansible_distribution == "Ubuntu"
   block:
 
+    - name: Libre Computer tasks
+      when: libre_computer
+      ansible.builtin.include_tasks: libre_computer.yaml
+
     - name: Update packages
       ansible.builtin.include_tasks: ubuntu.yaml
+
+    - name: Install packages for Proxmox
+      when: proxmox_vm
+      ansible.builtin.include_tasks: proxmox.yaml

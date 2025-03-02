@@ -4,10 +4,4 @@
   become: yes
 
   roles:
-    - role: hostname
-    - role: packages
-    - role: containerd
-    - role: swap
-    - role: network
-    - role: reboot
-    - role: kubernetes
+    - role: configure_kubernetes
