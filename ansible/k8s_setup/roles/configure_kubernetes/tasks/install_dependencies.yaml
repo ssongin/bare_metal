@@ -1,24 +1,4 @@
 ---
-- name: Load kernel modules for Kubernetes
-  community.general.modprobe:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - overlay
-    - br_netfilter
-
-- name: Configure sysctl settings
-  ansible.posix.sysctl:
-    name: "{{ item.key }}"
-    value: "{{ item.value }}"
-    sysctl_set: true
-    state: present
-    reload: true
-  with_items:
-    - { key: "net.bridge.bridge-nf-call-iptables", value: "1" }
-    - { key: "net.ipv4.ip_forward", value: "1" }
-    - { key: "net.bridge.bridge-nf-call-ip6tables", value: "1" }
-
 - name: Add Kubernetes APT key
   ansible.builtin.apt_key:
     url: https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key
