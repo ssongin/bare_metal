@@ -9,6 +9,7 @@
     - role: network
     - role: cloudinit
     - role: packages
+    - role: multipathd
     - role: containerd
     - role: swap
     - role: reboot

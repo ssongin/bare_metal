@@ -5,3 +5,5 @@ packages:
   - curl
   - gnupg
   - runc
+  - jq
+  - nfs-common

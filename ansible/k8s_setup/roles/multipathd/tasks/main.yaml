@@ -1,0 +1,15 @@
+---
+- name: Stop multipathd service
+  ansible.builtin.systemd:
+    name: multipathd
+    state: stopped
+    enabled: false
+    masked: true
+- name: Ensure multipathd is disabled in config
+  ansible.builtin.lineinfile:
+    path: /etc/multipath.conf
+    line: "    enable_multipathd no"
+    state: present
+    insertafter: "^defaults \\{"
+    create: true
+  notify: Reload multipathd
