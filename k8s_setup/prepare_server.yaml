@@ -5,10 +5,10 @@
 
   roles:
     - role: hostname
+    - role: ssh
+    - role: network
     - role: cloudinit
     - role: packages
     - role: containerd
     - role: swap
-    - role: network
     - role: reboot
-    # - role: prepare_kubernetes

@@ -15,7 +15,7 @@
 
 - name: Copy config-k8s from local controller to remote node's kube config location
   ansible.builtin.copy:
-    src: /tmp/.kube/config-k8s"
+    src: /tmp/.kube/config-k8s
     dest: "{{ ansible_env.HOME }}/.kube/config"
     mode: '0644'
 

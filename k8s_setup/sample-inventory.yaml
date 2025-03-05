@@ -7,19 +7,23 @@ all:
           children:
             control1:
               hosts:
-                192.168.1.10:
+                10.10.10.10:
                   desired_hostname: k8s-control1
         nodes:
           children:
             agent1:
               hosts:
-                192.168.1.11:
+                10.10.10.20:
                   desired_hostname: k8s-node1
             agent2:
               hosts:
-                192.168.1.12:
+                10.10.10.21:
                   desired_hostname: k8s-node2
 
       vars:
         ansible_port: 22
-        ansible_user: ansible
+        ansible_user: ubuntu
+        ansible_python_interpreter: /usr/bin/python3
+        ssh_public_key: "ssh-ed25519 AAC3Nahu7upz..."
+        proxmox_vm: false
+        libre_computer: false

@@ -1,12 +1,4 @@
 ---
-# - name: Initialize Kubernetes Control Plane
-#   ansible.builtin.command: >-
-#     kubeadm init --apiserver-advertise-address={{ ansible_default_ipv4.address }}
-#     --pod-network-cidr={{ pod_network_cidr }}
-#     --cri-socket /run/containerd/containerd.sock
-#   args:
-#     creates: /etc/kubernetes/admin.conf
-
 - name: Initialize Kubernetes Control Plane
   ansible.builtin.command: >-
     kubeadm init --apiserver-advertise-address={{ ansible_default_ipv4.address }}
