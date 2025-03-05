@@ -1,6 +1,6 @@
 ---
 - name: Change the password for the user
   ansible.builtin.user:
-    name: "{{ target_user }}"
-    password: "{{ new_password | password_hash('sha512') }}"
+    name: "{{ ansible_user }}"
+    password: "{{ desired_password | password_hash('sha512') }}"
   become: true

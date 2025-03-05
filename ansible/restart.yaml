@@ -1,0 +1,8 @@
+---
+- name: Restart
+  hosts: server1
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Reboot
+      ansible.builtin.reboot:

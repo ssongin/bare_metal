@@ -8,21 +8,23 @@ all:
       children:
         server1:
           hosts:
-            192.168.0.180:
+            192.168.10.11:
               desired_hostname: control1
         agent:
           children:
             agent1:
               hosts:
-                192.168.0.190:
-                  desired_hostname: agent1
+                192.168.10.21:
+                  desired_hostname: server1
             agent2:
               hosts:
-                192.168.0.197:
-                  desired_hostname: agent2
+                192.168.10.22:
+                  desired_hostname: server2
 
-  vars:
-    ansible_port: 22
-    ansible_user: root
-    # ansible_password: root
-    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+      vars:
+        ansible_port: 22
+        ansible_user: ansible
+        # ansible_password: root
+        ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
+        desired_password: ansible
+        ansible_ssh_private_key_file: ~/.ssh/k3s_homelab_ed25519

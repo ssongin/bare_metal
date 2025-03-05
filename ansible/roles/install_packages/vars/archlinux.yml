@@ -44,6 +44,10 @@ infrastructure:
       description: Install "rpi-image" to setup raspberry pi images
     - name: sshpass
       description: Install "sshpass" utility for ansible remote connection with pass
+  pip:
+    - name: passlib
+      description: Install "passlib" utility for ansible to change passwords remotely
+
 terminal:
   pacman:
     - name: kitty
@@ -90,6 +94,10 @@ terminal:
       description: Install "cmus" console audio player
     - name: p7zip
       description: Install "p7zip" compression utility
+    - name: nmap
+      description: Install "nmap" utility for network discovery and security auditing
+    - name: tcpdump
+      description: Install "tcpdump" packet analyzer
   yay:
     - name: yazi
       description: Install "yazi" file manager
@@ -206,4 +214,3 @@ desktop:
   #   description: Install "feh" a lightweight image viewer
   # - name: rofi
   #   description: Install "rofi" a window switcher, application launcher
-
