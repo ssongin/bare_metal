@@ -4,9 +4,14 @@ variable "namespace" {
   type        = string
   default     = "dns-pihole"
 }
+variable "name" {
+  description = "Name"
+  type        = string
+  default     = "pihole"
+}
 
 #Pi hole args
-variable "pihole_hostname" {
+variable "hostname" {
   description = "Hostname for portainer ingress"
   type        = string
   default     = "pihole.cloud.lan"

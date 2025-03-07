@@ -13,8 +13,11 @@ global:
 
 ports:
   web:
-    redirectTo:
-      port: websecure
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
 
 ingressRoute:
   dashboard:
@@ -22,25 +25,16 @@ ingressRoute:
     entryPoints: [web, websecure]
     matchRule: Host(`traefik-dashboard.cloud.lan`)
 
-readinessProbe:  # @schema additionalProperties: false
-  # -- The number of consecutive failures allowed before considering the probe as failed.
+readinessProbe:
   failureThreshold: 3
-  # -- The number of seconds to wait before starting the first probe.
   initialDelaySeconds: 10
-  # -- The number of seconds to wait between consecutive probes.
   periodSeconds: 10
-  # -- The minimum consecutive successes required to consider the probe successful.
   successThreshold: 1
-  # -- The number of seconds to wait for a probe response before considering it as failed.
   timeoutSeconds: 2
-livenessProbe:  # @schema additionalProperties: false
-  # -- The number of consecutive failures allowed before considering the probe as failed.
+
+livenessProbe:
   failureThreshold: 3
-  # -- The number of seconds to wait before starting the first probe.
   initialDelaySeconds: 2
-  # -- The number of seconds to wait between consecutive probes.
   periodSeconds: 10
-  # -- The minimum consecutive successes required to consider the probe successful.
   successThreshold: 1
-  # -- The number of seconds to wait for a probe response before considering it as failed.
   timeoutSeconds: 2

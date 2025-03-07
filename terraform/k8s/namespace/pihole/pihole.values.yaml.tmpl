@@ -1,5 +1,5 @@
 ingress:
-  enabled: true
+  enabled: false
   hosts: 
     - ${hostname}
 
@@ -22,7 +22,6 @@ dnsmasq:
   #   - cname=grafana.cloud.lan,cloud.lan
 
 serviceWeb:
-  loadBalancerIP: ${loadbalancerIP}
   type: ClusterIP
 
 serviceDns:

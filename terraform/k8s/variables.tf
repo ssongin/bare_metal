@@ -33,13 +33,25 @@ variable "ingress_class_name" {
 variable "portainer_hostname" {
   description = "Hostname for portainer ingress"
   type        = string
-  default     = "portainer.cloud.lan"
 }
 variable "portainer_namespace" {
   description = "Kubernets namespace for portainer"
   type        = string
   default     = "portainer"
 }
+variable "portainer_name" {
+  description = "Longhorn application name"
+  type        = string
+  default     = "portainer"
+}
+variable "portainer_services" {
+  description = "Portainer service names and ports"
+  type = list(object({
+    name = string
+    port = number
+  }))
+}
+
 variable "portainer_ingress_annotations" {
   description = "Annotations for the portainer ingress resource"
   type        = map(string)
@@ -76,10 +88,21 @@ variable "pihole_namespace" {
   type        = string
   default     = "dns-pihole"
 }
-variable "pihole_hostname" {
-  description = "Hostname for portainer ingress"
+variable "pihole_name" {
+  description = "Pihole application name"
   type        = string
-  default     = "pihole.cloud.lan"
+  default     = "pihole"
+}
+variable "pihole_hostname" {
+  description = "Hostname for pihole ingress"
+  type        = string
+}
+variable "pihole_services" {
+  description = "Pihole service names and ports"
+  type = list(object({
+    name = string
+    port = number
+  }))
 }
 variable "pihole_password" {
   description = "Pihole password"
@@ -108,3 +131,25 @@ variable "cert_manager_namespace" {
   default     = "cert-manager"
 }
 
+#Longhorn args
+variable "longhorn_namespace" {
+  description = "Longhorn namespace. Can't be changed!"
+  type        = string
+  default     = "longhorn-system"
+}
+variable "longhorn_name" {
+  description = "Longhorn application name"
+  type        = string
+  default     = "longhorn"
+}
+variable "longhorn_hostname" {
+  description = "Longhorn hostname"
+  type        = string
+}
+variable "longhorn_services" {
+  description = "Longhorn service names and ports"
+  type = list(object({
+    name = string
+    port = number
+  }))
+}
