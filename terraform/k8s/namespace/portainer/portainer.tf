@@ -1,16 +1,20 @@
-resource "helm_release" "longhorn" {
+resource "helm_release" "portainer" {
   name       = var.name
-  repository = "https://charts.longhorn.io"
+  repository = "https://portainer.github.io/k8s/"
   chart      = var.name
-  version    = var.helm_version
 
   namespace        = var.namespace
   create_namespace = true
   cleanup_on_fail  = true
-  description      = "Longhorn is a distributed block storage system for Kubernetes."
+  description      = "Portainer orchestration tool for kubernetes"
+
 
   values = [
     templatefile("${path.module}/${var.name}.values.yaml.tmpl", {
+      ingress_class       = var.ingress_class_name
+      paths               = var.portainer_ingress_paths
+      hostname            = var.hostname
+      ingress_annotations = var.portainer_ingress_annotations
     })
   ]
 }
@@ -34,11 +38,11 @@ spec:
     - ${var.hostname}
     - www.${var.hostname}
 YAML
-  depends_on = [helm_release.longhorn]
+  depends_on = [helm_release.portainer]
 }
 
 
-resource "kubectl_manifest" "longhorn_ingress" {
+resource "kubectl_manifest" "portainer_ingress" {
   yaml_body  = <<YAML
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -62,9 +66,10 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: longhorn-frontend
+                name: portainer
                 port:
-                  number: 80
+                  number: 9443
 YAML
   depends_on = [kubectl_manifest.selfsigned_certificate]
 }
+

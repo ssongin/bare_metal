@@ -11,6 +11,17 @@ service:
 global:
   sendAnonymousUsage: false
 
+ports:
+  web:
+    redirectTo:
+      port: websecure
+
+ingressRoute:
+  dashboard:
+    enabled: true
+    entryPoints: [web, websecure]
+    matchRule: Host(`traefik-dashboard.cloud.lan`)
+
 readinessProbe:  # @schema additionalProperties: false
   # -- The number of consecutive failures allowed before considering the probe as failed.
   failureThreshold: 3

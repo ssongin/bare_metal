@@ -1,0 +1,12 @@
+ingress:
+  enabled: true
+  ingressClassName: ${ingress_class}
+  hosts: 
+    - ${hostname}
+
+adminPassword: ${password}
+
+persistence:
+  enabled: false
+  # storageClassName: gp2
+

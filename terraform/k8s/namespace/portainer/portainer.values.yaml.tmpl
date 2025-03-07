@@ -1,0 +1,17 @@
+ingress:
+  enabled: true
+  ingressClassName: ${ingress_class}
+  annotations: 
+%{ for key, value in ingress_annotations ~}
+    ${key}: ${value}
+%{ endfor ~}
+  hosts:
+    - host: ${hostname}
+      paths:
+%{ for p in paths ~}
+        - path: ${p.path}
+          port: ${p.port}
+%{ endfor ~}
+
+persistence:
+  enabled: true
