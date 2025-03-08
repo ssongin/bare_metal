@@ -1,0 +1,46 @@
+---
+- name: Reset Kubernetes Cluster
+  become: true
+  ansible.builtin.command: kubeadm reset --force
+  register: kubeadm_reset_result
+  failed_when: kubeadm_reset_result.rc != 0 and "command not found" not in kubeadm_reset_result.stderr
+
+- name: Remove Kubernetes-related directories
+  become: true
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - /etc/kubernetes
+    - /var/lib/etcd
+    - /var/lib/kubelet
+    - /var/lib/cni
+    - /var/run/kubernetes
+
+- name: Flush iptables
+  become: true
+  ansible.builtin.command: "{{ item }}"
+  loop:
+    - iptables -F
+    - iptables -X
+    - iptables -t nat -F
+    - iptables -t nat -X
+  register: iptables_result
+  failed_when: iptables_result.rc != 0 and "command not found" not in iptables_result.stderr
+
+- name: Remove CNI network interfaces
+  become: true
+  ansible.builtin.command: ip link delete {{ item }}
+  ignore_errors: true  # Ignore if interfaces don't exist
+  loop:
+    - cni0
+    - flannel.1
+  register: cni_remove_result
+  failed_when: cni_remove_result.rc != 0 and "Cannot find device" not in cni_remove_result.stderr
+
+- name: Restart kubelet
+  become: true
+  ansible.builtin.systemd:
+    name: kubelet
+    state: restarted
+    enabled: true

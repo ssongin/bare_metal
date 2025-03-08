@@ -1,0 +1,8 @@
+---
+- name: Hard reset kubernetes cluster
+  hosts: k8s_cluster
+  become: yes
+
+  roles:
+    - role: reset_kubernetes
+    - role: configure_kubernetes
