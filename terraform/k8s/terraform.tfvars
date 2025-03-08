@@ -1,7 +1,29 @@
+### -------------------- ### Provider args ### -------------------- ###
 kubeconfig_path = "~/.kube/config-k8s"
 
+### -------------------- ### Kubernetes common args ### -------------------- ###
 ingress_class_name = "traefik"
 
+### -------------------- ### Metallb args ### -------------------- ###
+metallb_repository   = "https://metallb.github.io/metallb"
+metallb_namespace    = "kube-metallb"
+metallb_address_pool = "192.168.10.100-192.168.10.200"
+
+### -------------------- ### Traefik args ### -------------------- ###
+traefik_repository = "https://traefik.github.io/charts"
+
+### -------------------- ### Cert-Manager args ### -------------------- ###
+cm_repository = "https://charts.jetstack.io"
+
+### -------------------- ### Longhorn args ### -------------------- ###
+longhorn_repository = "https://charts.longhorn.io"
+
+### -------------------- ### Pihole args ### -------------------- ###
+pihole_repository = "https://mojo2600.github.io/pihole-kubernetes/"
+pihole_namespace  = "default" #for some reason helm is installed into default
+
+### -------------------- ### Portainer args ### -------------------- ###
+portainer_repository = "https://portainer.github.io/k8s/"
 # grafana_hostname  = "grafana.cloud.lan"
 # grafana_password  = "admin"
 # grafana_namespace = "monitoring"
@@ -54,8 +76,6 @@ pihole_services = [
     port = 80
   }
 ]
-
-cert_manager_namespace = "cert-manager"
 
 longhorn_hostname = "longhorn.cloud.lan"
 longhorn_services = [
