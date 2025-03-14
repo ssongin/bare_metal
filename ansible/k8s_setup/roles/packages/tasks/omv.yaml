@@ -1,0 +1,28 @@
+---
+- name: Make sure required packages are present
+  become: true
+  block:
+    - name: Load variable file
+      ansible.builtin.include_vars: omv.yaml
+
+    - name: Update apt package list
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Upgrade all packages
+      ansible.builtin.apt:
+        upgrade: dist
+
+    - name: Install packages
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}"
+
+    - name: Clean APT cache
+      ansible.builtin.apt:
+        autoclean: true
+
+    - name: Remove unused packages
+      ansible.builtin.apt:
+        autoremove: true

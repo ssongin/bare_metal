@@ -24,6 +24,10 @@ pihole_namespace  = "default" #for some reason helm is installed into default
 
 ### -------------------- ### Portainer args ### -------------------- ###
 portainer_repository = "https://portainer.github.io/k8s/"
+
+### -------------------- ### Prometheus args ### -------------------- ###
+prometheus_repository = "https://prometheus-community.github.io/helm-charts"
+prometheus_namespace  = "monitoring"
 # grafana_hostname  = "grafana.cloud.lan"
 # grafana_password  = "admin"
 # grafana_namespace = "monitoring"

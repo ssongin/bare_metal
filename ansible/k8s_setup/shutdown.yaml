@@ -1,6 +1,6 @@
 ---
 - name: Shutdown servers
-  hosts: k8s_cluster
+  hosts: all
   become: true
   gather_facts: false
 

@@ -149,6 +149,9 @@ hyprland:
       description: Instlall "waybar" wayland bar for sway
     - name: swaync
       description: Install "swaync" notification window
+    - name: xcb-util-cursor
+      description: Install "xcb-util-cursor" X11 GUI cursor management library
+
   yay:
     - name: picom
       description: Install "picom" a lightweight compositor for X11

@@ -7,7 +7,7 @@
 - name: Cleanup cloud-init
   become: true
   become_user: root
-  when: proxmox_vm
+  when: proxmox_vm | default (false)
   block:
 
     - name: Run cloud-init clean

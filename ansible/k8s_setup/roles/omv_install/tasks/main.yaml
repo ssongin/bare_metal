@@ -1,0 +1,49 @@
+- name: Add OpenMediaVault keyring
+  ansible.builtin.get_url:
+    url: https://packages.openmediavault.org/public/archive.key
+    dest: /tmp/archive.key
+    mode: '0644'
+
+- name: Convert key to GPG format
+  ansible.builtin.command: gpg --dearmor --yes --output /usr/share/keyrings/openmediavault-archive-keyring.gpg /tmp/archive.key
+  args:
+    creates: /usr/share/keyrings/openmediavault-archive-keyring.gpg
+
+- name: Add OpenMediaVault repository
+  ansible.builtin.copy:
+    mode: '0644'
+    dest: /etc/apt/sources.list.d/openmediavault.list
+    content: |
+      deb [signed-by=/usr/share/keyrings/openmediavault-archive-keyring.gpg] https://packages.openmediavault.org/public sandworm main
+
+- name: Set environment variables
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    line: "{{ item }}"
+    create: true
+    mode: '0644'
+  loop:
+    - LANG=C.UTF-8
+    - DEBIAN_FRONTEND=noninteractive
+    - APT_LISTCHANGES_FRONTEND=none
+
+- name: Upgrade all packages before installing OpenMediaVault
+  ansible.builtin.apt:
+    update_cache: true
+    upgrade: full
+
+- name: Install OpenMediaVault
+  ansible.builtin.apt:
+    name: openmediavault
+    state: present
+    autoremove: true
+    allow_downgrade: true
+    allow_change_held_packages: true
+    install_recommends: false
+    dpkg_options: "force-confdef,force-confold"
+
+- name: Populate OpenMediaVault database
+  ansible.builtin.command: omv-confdbadm populate
+
+- name: Deploy network configuration
+  ansible.builtin.command: omv-salt deploy run systemd-networkd

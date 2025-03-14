@@ -6,12 +6,17 @@
   block:
 
     - name: Libre Computer tasks
-      when: libre_computer
+      when: libre_computer | default (false) | bool
       ansible.builtin.include_tasks: libre_computer.yaml
 
     - name: Update packages
+      when: not install_omv | default (true) | bool
       ansible.builtin.include_tasks: ubuntu.yaml
 
+    - name: Install packages for OpenMediaVault
+      when: install_omv | default (false) | bool
+      ansible.builtin.include_tasks: omv.yaml
+
     - name: Install packages for Proxmox
-      when: proxmox_vm
+      when: proxmox_vm | default (false) | bool
       ansible.builtin.include_tasks: proxmox.yaml

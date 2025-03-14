@@ -12,9 +12,14 @@ server_prepare:
 install_terminal:
 	ansible-playbook cis.yaml --ask-become-pass --extra-vars "profile=terminal"
 
+# Install hyprland packages
+install_hyprland:
+	ansible-playbook cis.yaml --ask-become-pass --extra-vars "profile=hyprland"
+
 # Help message
 help:
 	@echo "Usage:"
-	@echo "  make install_terminal		# Install terminal utilities"
+	@echo "  make install_hyprland			# Install hyprland packages"
+	@echo "  make install_terminal			# Install terminal utilities"
 	@echo "  make server_prepare			# Prepare cluster servers (Uses password)"
 	@echo "  make server_reconfig			# Reconfigure cluster (Uses SSH key)"

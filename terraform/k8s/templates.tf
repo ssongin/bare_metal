@@ -17,4 +17,7 @@ locals {
     hostname            = var.portainer_hostname
     ingress_annotations = var.portainer_ingress_annotations
   })
+  prometheus_helm_values = templatefile("${path.module}/helm-values/prometheus.yaml.tftl", {
+
+  })
 }

@@ -1,0 +1,11 @@
+---
+- name: Install OpenMediaVault
+  hosts: nas
+  become: true
+
+  roles:
+    - role: hostname
+    - role: ssh
+    - role: packages
+    - role: cloudinit
+    - role: omv_install

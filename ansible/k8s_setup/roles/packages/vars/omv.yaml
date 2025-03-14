@@ -1,0 +1,12 @@
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg
+  - php-cli
+  - php-common
+  - php-fpm
+  - php-json
+  - php-curl
+  - php-mbstring
+  - php-pam

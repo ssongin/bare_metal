@@ -202,6 +202,36 @@ variable "portainer_app_description" {
   default     = "Portainer orchestration tool for kubernetes"
 }
 
+### -------------------- ### Prometheus args ### -------------------- ###
+variable "prometheus_chart" {
+  description = "Prometheus chart name"
+  type        = string
+  default     = "prometheus"
+}
+variable "prometheus_version" {
+  description = "Prometheus chart version"
+  type        = string
+  default     = "27.5.1"
+}
+variable "prometheus_name" {
+  description = "Prometheus application name"
+  type        = string
+  default     = "prometheus"
+}
+variable "prometheus_repository" {
+  description = "Prometheus helm repository link"
+  type        = string
+}
+variable "prometheus_namespace" {
+  description = "Prometheus kubernetes namespace"
+  type        = string
+  default     = "prometheus"
+}
+variable "prometheus_app_description" {
+  description = "Portainer description"
+  type        = string
+  default     = "Portainer orchestration tool for kubernetes"
+}
 
 
 # #Grafana args

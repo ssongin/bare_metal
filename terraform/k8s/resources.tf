@@ -86,6 +86,8 @@ resource "helm_release" "portainer" {
   depends_on       = [module.cert-issuer, helm_release.longhorn]
 }
 
+
+
 ### -------------------- ### Routes ### -------------------- ###
 module "longhorn-route" {
   source     = "./modules/network/traefik-route"
