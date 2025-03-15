@@ -82,6 +82,16 @@ terminal:
       description: Install "fd" find utility
     - name: unzip
       description: Install "unzip" utility for lazyvim mason installation
+    - name: lha
+      description: Install "lha" utility for LH-7 format archives
+    - name: arj
+      description: Install "arj" archives
+    - name: unarj
+      description: Install "unarj" unarchiver
+    - name: unace
+      description: Install "unace" extraction tool for ace archives
+    - name: unrar
+      description: Install "unrar" decompression utility
     - name: luarocks
       description: Install "luarocks" deployment and management system for lua
     - name: tree-sitter
@@ -161,6 +171,12 @@ desktop:
       description: Install "thunderbird" mail, news and chat client from Mozilla
     - name: dolphin
       description: Install "dolphin" KDE's file manager
+    - name: krusader
+      description: Install "krusader" file manager
+    - name: kdiff3
+      description: Install "kdiff3" file comparator/merge tool
+    - name: krename
+      description: Install "krename" batch file renamer
     - name: calibre
       description: Install "calibre" e-book management system
     - name: drawio-desktop
