@@ -12,6 +12,45 @@ variable "ingress_class_name" {
   default     = "treafik"
 }
 
+### -------------------- ### Nfs client provisioner args ### -------------------- ###
+variable "nfs_client_chart" {
+  description = "Nfs client provisioner chart name"
+  type        = string
+  default     = "nfs-subdir-external-provisioner"
+}
+variable "nfs_client_version" {
+  description = "Nfs client provisioner chart version"
+  type        = string
+  default     = "4.0.18"
+}
+variable "nfs_client_name" {
+  description = "Nfs client provisioner application name"
+  type        = string
+  default     = "nfs-subdir-external-provisioner"
+}
+variable "nfs_client_repository" {
+  description = "Nfs client provisioner helm repository link"
+  type        = string
+}
+variable "nfs_client_namespace" {
+  description = "Nfs client provisioner kubernetes namespace"
+  type        = string
+  default     = "nfs-client"
+}
+variable "nfs_client_app_description" {
+  description = "Nfs client provisioner description"
+  type        = string
+  default     = "NFS subdir external provisioner is an automatic provisioner that use your existing and already configured NFS server to support dynamic provisioning of Kubernetes Persistent Volumes via Persistent Volume Claims."
+}
+variable "nfs-client-server" {
+  description = "IP or hostname of NFS server"
+  type        = string
+}
+variable "nfs-client-path" {
+  description = "Base path of the mounted point to be used"
+  type        = string
+}
+
 ### -------------------- ### Metallb args ### -------------------- ###
 variable "metallb_chart" {
   description = "Metallb chart name"
@@ -138,6 +177,37 @@ variable "longhorn_app_description" {
   description = "Longhorn description"
   type        = string
   default     = "Longhorn is a distributed block storage system for Kubernetes."
+}
+
+### -------------------- ### Rancher args ### -------------------- ###
+variable "rancher_chart" {
+  description = "Rancher chart name"
+  type        = string
+  default     = "rancher"
+}
+variable "rancher_version" {
+  description = "Rancher chart version"
+  type        = string
+  default     = "2.10.3"
+}
+variable "rancher_name" {
+  description = "Rancher application name"
+  type        = string
+  default     = "rancher"
+}
+variable "rancher_repository" {
+  description = "Rancher helm repository link"
+  type        = string
+}
+variable "rancher_namespace" {
+  description = "Rancher kubernetes namespace"
+  type        = string
+  default     = "cattle-system"
+}
+variable "rancher_app_description" {
+  description = "Rancher description"
+  type        = string
+  default     = "Rancher is a complete software stack for teams adopting containers. It addresses the operational and security challenges of managing multiple Kubernetes clusters, while providing DevOps teams with integrated tools for running containerized workloads."
 }
 
 ### -------------------- ### Pihole args ### -------------------- ###

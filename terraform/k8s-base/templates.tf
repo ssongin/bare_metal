@@ -3,6 +3,11 @@ locals {
   traefik_helm_values  = templatefile("${path.module}/helm-values/traefik.yaml.tftpl", {})
   cm_helm_values       = templatefile("${path.module}/helm-values/cert-manager.yaml.tftpl", {})
   longhorn_helm_values = templatefile("${path.module}/helm-values/longhorn.yaml.tftpl", {})
+  nfs_client_helm_values = templatefile("${path.module}/helm-values/nfs-client.yaml.tftpl", {
+    server = var.nfs-client-server
+    path   = var.nfs-client-path
+  })
+  rancher_helm_values = templatefile("${path.module}/helm-values/rancher.yaml.tftpl", {})
   pihole_helm_values = templatefile("${path.module}/helm-values/pihole.yaml.tftpl", {
     hostname       = var.pihole_hostname
     dns_entries    = var.pihole_dns_a_records
@@ -17,7 +22,7 @@ locals {
     hostname            = var.portainer_hostname
     ingress_annotations = var.portainer_ingress_annotations
   })
-  prometheus_helm_values = templatefile("${path.module}/helm-values/prometheus.yaml.tftl", {
+  prometheus_helm_values = templatefile("${path.module}/helm-values/prometheus.yaml.tftpl", {
 
   })
 }

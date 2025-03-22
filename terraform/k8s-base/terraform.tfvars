@@ -4,6 +4,11 @@ kubeconfig_path = "~/.kube/config-k8s"
 ### -------------------- ### Kubernetes common args ### -------------------- ###
 ingress_class_name = "traefik"
 
+### -------------------- ### Nfs client provisioner args ### -------------------- ###
+nfs_client_repository = "https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner"
+nfs-client-server     = "192.168.10.41"
+nfs-client-path       = "/Seagate/k8s"
+
 ### -------------------- ### Metallb args ### -------------------- ###
 metallb_repository   = "https://metallb.github.io/metallb"
 metallb_namespace    = "kube-metallb"
@@ -21,6 +26,9 @@ longhorn_repository = "https://charts.longhorn.io"
 ### -------------------- ### Pihole args ### -------------------- ###
 pihole_repository = "https://mojo2600.github.io/pihole-kubernetes/"
 pihole_namespace  = "default" #for some reason helm is installed into default
+
+### -------------------- ### Rancher args ### -------------------- ###
+rancher_repository = "https://releases.rancher.com/server-charts/stable"
 
 ### -------------------- ### Portainer args ### -------------------- ###
 portainer_repository = "https://portainer.github.io/k8s/"
@@ -69,9 +77,9 @@ pihole_nameservers = [
 ]
 pihole_dns_a_records = ["address=/cloud.lan/192.168.10.100",
   "address=/pihole.cloud.lan/192.168.10.100",
-  "address=/portainer.cloud.lan/192.168.10.100",
+  "address=/rancher.cloud.lan/192.168.10.100",
   "address=/grafana.cloud.lan/192.168.10.100",
-  "address=/longhorn.cloud.lan/192.168.10.100",
+  # "address=/longhorn.cloud.lan/192.168.10.100",
   "address=/traefik-dashboard.cloud.lan/192.168.10.100"
 ]
 pihole_services = [
