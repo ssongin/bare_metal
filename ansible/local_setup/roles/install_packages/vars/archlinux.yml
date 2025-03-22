@@ -4,6 +4,8 @@ base:
       description: Install "base-devel" package
     - name: stow
       description: Install GNU "stow" symlink farm manager
+    - name: nfs-utils
+      description: Install "nfs-utils" support programs for Network File Systems
 
 sdk:
   pacman:
