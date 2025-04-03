@@ -7,3 +7,4 @@ packages:
   - runc
   - jq
   - nfs-common
+  - helm

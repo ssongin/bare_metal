@@ -10,7 +10,7 @@
       ansible.builtin.include_tasks: libre_computer.yaml
 
     - name: Update packages
-      when: not install_omv | default (true) | bool
+      when: not install_omv | default (false) | bool
       ansible.builtin.include_tasks: ubuntu.yaml
 
     - name: Install packages for OpenMediaVault

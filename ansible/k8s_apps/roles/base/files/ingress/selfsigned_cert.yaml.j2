@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ v.name }}-tls
+  namespace: {{ v.namespace }}
+spec:
+  secretName: {{ v.name }}-tls-secret
+  duration: 8760h # 1 year
+  renewBefore: 720h # 30 days before expiration
+  issuerRef:
+    name: selfsigned-cluster-issuer
+    kind: ClusterIssuer
+  commonName: {{ v.hostname }}
+  dnsNames:
+    - {{ v.hostname }}
+    - www.{{ v.hostname }}

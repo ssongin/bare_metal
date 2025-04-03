@@ -12,6 +12,9 @@ setup:
 omv_install:
 	ansible-playbook omv_install.yaml --ask-become-pass --ask-pass
 
+packages:
+	ansible-playbook packages.yaml --ask-become-pass --ask-pass
+
 reboot:
 	ansible-playbook reboot.yaml --ask-become-pass --ask-pass
 
@@ -30,5 +33,6 @@ help:
 	@echo "  make setup				# Configure control and nodes for Kubernets cluster"
 	@echo "  make reset				# Reset cluster to initial configuriation"
 	@echo "  make omv_install			# Install OpenMediaVault on Debian based machine"
+	@echo "  make packages				# Apply packages to k8s machines"
 	@echo "  make reboot				# Reboot all machines"
 	@echo "  make shutdown				# Shutdown all machines"

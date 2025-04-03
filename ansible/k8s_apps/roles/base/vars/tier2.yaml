@@ -1,0 +1,11 @@
+helm:
+  - name: traefik
+    chart: traefik/traefik
+    version: 34.4.1
+    namespace: kube-network
+  - name: cert-manager
+    chart: cert-manager/cert-manager
+    version: 1.17.1
+    namespace: kube-network
+manifest:
+  - clusterissuer.yaml.j2

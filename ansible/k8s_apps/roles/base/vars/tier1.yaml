@@ -1,0 +1,12 @@
+helm:
+  - name: nfs-provisioner
+    chart: nfs-provisioner/nfs-subdir-external-provisioner
+    version: 4.0.18
+    namespace: kube-storage
+  - name: metallb
+    chart: metallb/metallb
+    version: 0.14.9
+    namespace: kube-network
+manifest:
+  - ipaddresspool.yaml.j2
+  - l2advertisement.yaml.j2

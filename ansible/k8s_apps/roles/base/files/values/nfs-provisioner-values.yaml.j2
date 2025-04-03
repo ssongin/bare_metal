@@ -1,0 +1,9 @@
+nfs:
+  server: 192.168.10.41
+  path: /Seagate/k8s
+  mountOptions: 
+    - nolock
+  reclaimPolicy: Retain
+storageClass:
+  create: true
+  defaultClass: true

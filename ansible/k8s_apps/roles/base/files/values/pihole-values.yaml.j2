@@ -1,0 +1,52 @@
+ingress:
+  enabled: false
+
+persistentVolumeClaim:
+  enabled: false
+
+dnsmasq:
+  customDnsEntries:
+  {% for entry in pihole.dns_entries %}
+  - {{ entry }}
+  {% endfor %}
+  # -- Other options
+  customSettings:
+    # permit all origins
+    - except-interface=nonexisting
+
+serviceWeb:
+  type: ClusterIP
+
+serviceDns:
+  loadBalancerIP: {{ pihole.loadbalancerIP }}
+  externalTrafficPolicy: Cluster
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+
+podDnsConfig:
+  enabled: true
+  policy: "None"
+  nameservers:
+  {% for item in pihole.nameservers %}
+  - {{ item }}
+  {% endfor %}
+
+adminPassword: {{ pihole.password }}
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+extraEnvVars:
+  DNSMASQ_USER: "root"
+
+env:
+  TZ: "{{ common.timezone }}"
+  FTLCONF_LOCAL_IPV4: "{{ pihole.loadbalancerIP }}"
+  DNSMASQ_LISTENING: "all"
+  FTLCONF_RATE_LIMIT: "0/0"

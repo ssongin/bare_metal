@@ -1,0 +1,61 @@
+ingress:
+  enabled: false
+  hosts: 
+    - ${hostname}
+
+persistentVolumeClaim:
+  enabled: false
+
+dnsmasq:
+  customDnsEntries:
+  %{ for entry in dns_entries ~}
+  - ${entry}
+  %{ endfor ~}
+  # -- Other options
+  customSettings:
+    # permit all origins
+    - except-interface=nonexisting
+ 
+  # customCnameEntries:
+  #   - cname=pihole.lab,lab
+  #   - cname=portainer.lab,lab
+  #   - cname=grafana.cloud.lan,cloud.lan
+
+serviceWeb:
+  type: ClusterIP
+
+serviceDns:
+  loadBalancerIP: ${loadbalancerIP}
+  externalTrafficPolicy: Cluster
+  annotations:
+    metallb.universe.tf/allow-shared-ip: pihole-svc
+  type: LoadBalancer
+
+podDnsConfig:
+  enabled: true
+  policy: "None"
+  nameservers:
+  %{ for item in nameservers ~}
+  - ${item}
+  %{ endfor ~}
+
+#! use an existing secret in a prod env
+adminPassword: ${password}
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+extraEnvVars: {
+  DNSMASQ_USER: "root"
+}
+
+env:
+  TZ: "Europe/Vilnius"  # Adjust to your timezone
+  FTLCONF_LOCAL_IPV4: "${loadbalancerIP}"  # Set to your LoadBalancer IP
+  DNSMASQ_LISTENING: "all"
+  FTLCONF_RATE_LIMIT: "0/0"

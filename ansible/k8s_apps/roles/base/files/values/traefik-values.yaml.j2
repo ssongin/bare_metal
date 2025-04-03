@@ -1,0 +1,40 @@
+additionalArguments:
+  - "--providers.kubernetesingress"
+  - "--providers.kubernetescrd"
+  - "--ping"
+  - "--global.sendAnonymousUsage=false"
+
+service:
+  enabled: true
+  type: LoadBalancer
+
+global:
+  sendAnonymousUsage: false
+
+ports:
+  web:
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+
+ingressRoute:
+  dashboard:
+    enabled: true
+    entryPoints: [web, websecure]
+    matchRule: Host(`traefik-dashboard.cloud.lan`)
+
+readinessProbe:
+  failureThreshold: 3
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 2
+
+livenessProbe:
+  failureThreshold: 3
+  initialDelaySeconds: 2
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 2

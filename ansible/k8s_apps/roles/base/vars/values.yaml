@@ -1,0 +1,23 @@
+common:
+  timezone: "Europe/Vilnius"
+
+pihole:
+  dns_entries:
+    - "address=/cloud.lan/192.168.10.100"
+    - "address=/pihole.cloud.lan/192.168.10.100"
+    - "address=/rancher.cloud.lan/192.168.10.100"
+    - "address=/grafana.cloud.lan/192.168.10.100"
+    - "address=/traefik-dashboard.cloud.lan/192.168.10.100"
+    - "address=/calibre.cloud.lan/192.168.10.100"
+    - "address=/plex.cloud.lan/192.168.10.100"
+    - "address=/k8s-dashboard.cloud.lan/192.168.10.100"
+    - "address=/argocd.cloud.lan/192.168.10.100"
+
+  loadbalancerIP: "192.168.10.101"
+
+  nameservers:
+    - "127.0.0.1"
+    - "1.1.1.1"
+    - "1.0.0.1"
+
+  password: "password"

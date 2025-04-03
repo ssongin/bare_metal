@@ -1,0 +1,19 @@
+- name: Deploy tier helm applications
+  kubernetes.core.helm:
+    name: "{{ item.name }}"
+    chart_ref: "{{ item.chart }}"
+    chart_version: "{{ item.version }}"
+    release_namespace: "{{ item.namespace }}"
+    create_namespace: true
+    wait: true
+    values: "{{ lookup('template', 'roles/base/files/values/' + item.name + '-values.yaml.j2') | from_yaml }}"
+  loop: "{{ tier.helm }}"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: Apply tier manifests
+  kubernetes.core.k8s:
+    state: present
+    definition: "{{ lookup('template', 'roles/base/files/manifest/' + item) | from_yaml }}"
+  # loop: "{{ tier.manifest }}"
+  loop: "{{ tier.get('manifest', []) }}"

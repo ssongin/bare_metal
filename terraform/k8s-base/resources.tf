@@ -86,18 +86,18 @@ module "cert-issuer" {
 #   depends_on       = [helm_release.traefik]
 # }
 
-resource "helm_release" "dns-pihole" {
-  name             = var.pihole_name
-  namespace        = var.pihole_namespace
-  repository       = var.pihole_repository
-  chart            = var.pihole_chart
-  version          = var.pihole_version
-  create_namespace = true
-  cleanup_on_fail  = true
-  description      = var.pihole_app_description
-  values           = [local.pihole_helm_values]
-  depends_on       = [module.cert-issuer]
-}
+# resource "helm_release" "dns-pihole" {
+#   name             = var.pihole_name
+#   namespace        = var.pihole_namespace
+#   repository       = var.pihole_repository
+#   chart            = var.pihole_chart
+#   version          = var.pihole_version
+#   create_namespace = true
+#   cleanup_on_fail  = true
+#   description      = var.pihole_app_description
+#   values           = [local.pihole_helm_values]
+#   depends_on       = [module.cert-issuer]
+# }
 
 # resource "helm_release" "portainer" {
 #   name             = var.portainer_name
@@ -142,11 +142,11 @@ resource "helm_release" "dns-pihole" {
 #   depends_on = [module.cert-issuer, helm_release.dns-pihole]
 # }
 
-module "pihole-route" {
-  source     = "./modules/network/traefik-route"
-  namespace  = "default" # TODO
-  name       = var.pihole_name
-  hostname   = var.pihole_hostname
-  services   = var.pihole_services
-  depends_on = [module.cert-issuer, helm_release.dns-pihole]
-}
+# module "pihole-route" {
+#   source     = "./modules/network/traefik-route"
+#   namespace  = "default" # TODO
+#   name       = var.pihole_name
+#   hostname   = var.pihole_hostname
+#   services   = var.pihole_services
+#   depends_on = [module.cert-issuer, helm_release.dns-pihole]
+# }

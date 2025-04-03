@@ -75,12 +75,14 @@ pihole_nameservers = [
   "1.1.1.1",
   "1.0.0.1"
 ]
-pihole_dns_a_records = ["address=/cloud.lan/192.168.10.100",
-  "address=/pihole.cloud.lan/192.168.10.100",
-  "address=/rancher.cloud.lan/192.168.10.100",
-  "address=/grafana.cloud.lan/192.168.10.100",
-  # "address=/longhorn.cloud.lan/192.168.10.100",
-  "address=/traefik-dashboard.cloud.lan/192.168.10.100"
+pihole_dns_a_records = 
+  - "address=/cloud.lan/192.168.10.100"
+  - "address=/pihole.cloud.lan/192.168.10.100"
+  - "address=/rancher.cloud.lan/192.168.10.100"
+  - "address=/grafana.cloud.lan/192.168.10.100"
+  - "address=/traefik-dashboard.cloud.lan/192.168.10.100"
+  - "address=/calibre.cloud.lan/192.168.10.100"
+  - "address=/plex.cloud.lan/192.168.10."
 ]
 pihole_services = [
   {

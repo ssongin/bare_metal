@@ -1,0 +1,77 @@
+- name: Install Helm Diff plugin
+  ansible.builtin.command:
+    cmd: "helm plugin install https://github.com/databus23/helm-diff"
+  args:
+    creates: ~/.local/share/helm/plugins/helm-diff
+
+- name: Add helm repositories
+  kubernetes.core.helm_repository:
+    name: "{{ item.name }}"
+    repo_url: "{{ item.url }}"
+  loop: "{{ repositories }}"
+  loop_control:
+    label: "{{ item.description }}"
+
+- name: Update repo cache
+  kubernetes.core.helm:
+    name: default
+    release_namespace: default
+    state: absent
+    update_repo_cache: true
+
+- name: Import helm values
+  ansible.builtin.include_vars:
+    file: values.yaml
+
+# - name: Import tier 1 applications list
+#   ansible.builtin.include_vars:
+#     file: tier1.yaml
+#     name: tier
+#
+# - name: Apply tier 1
+#   ansible.builtin.include_tasks: tier.yaml
+#
+# - name: Import tier 2 applications list
+#   ansible.builtin.include_vars:
+#     file: tier2.yaml
+#     name: tier
+#
+# - name: Apply tier 2
+#   ansible.builtin.include_tasks: tier.yaml
+
+- name: Import tier 3 applications list
+  ansible.builtin.include_vars:
+    file: tier3.yaml
+    name: tier
+
+- name: Apply tier 3
+  ansible.builtin.include_tasks: tier.yaml
+
+- name: Create namespace for ArgoCD
+  kubernetes.core.k8s:
+    name: argocd
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: Apply ArgoCD manifests
+  kubernetes.core.k8s:
+    state: present
+    src: https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    namespace: argocd
+
+- name: Create self signed certificates
+  kubernetes.core.k8s:
+    state: present
+    definition: "{{ lookup('template', 'roles/base/files/ingress/selfsigned_cert.yaml.j2') | from_yaml }}"
+  loop: "{{ ingress }}"
+  loop_control:
+    loop_var: v
+
+- name: Create traefik routes
+  kubernetes.core.k8s:
+    state: present
+    definition: "{{ lookup('template', 'roles/base/files/ingress/traefik_ingress.yaml.j2') | from_yaml }}"
+  loop: "{{ ingress }}"
+  loop_control:
+    loop_var: v

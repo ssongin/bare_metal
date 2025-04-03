@@ -1,0 +1,16 @@
+ingress:
+  enabled: false
+extraEnv:
+# This claim is optional, and is only used for the first startup of PMS
+# The claim is obtained from https://www.plex.tv/claim/ is is only valid for a few minutes
+#   PLEX_CLAIM: "claim"
+#   HOSTNAME: "PlexServer"
+  TZ: "{{ common.timezone }}"
+#   PLEX_UPDATE_CHANNEL: "5"
+  PLEX_UID: "65534"
+  PLEX_GID: "65534"
+# a list of CIDRs that can use the server without authentication
+  # this is only used for the first startup of PMS
+#   ALLOWED_NETWORKS: "0.0.0.0/0"
+
+# -- Optionally specify additional volume mounts for the PMS and init containers.

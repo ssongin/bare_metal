@@ -1,0 +1,7 @@
+---
+- name: Apply packages
+  hosts: k8s_cluster
+  become: yes
+
+  roles:
+    - role: packages

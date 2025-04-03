@@ -34,6 +34,17 @@
   register: flannel_ready
   changed_when: false
 
+- name: Ensure pip is installed
+  apt:
+    name: python3-pip
+    state: present
+
+- name: Install kubernetes Python package
+  pip:
+    name: kubernetes
+    state: present
+    executable: pip3
+
 - name: Generate kubeadm join command
   ansible.builtin.shell: kubeadm token create --print-join-command
   register: join_command
