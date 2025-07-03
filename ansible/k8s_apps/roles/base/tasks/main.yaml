@@ -38,26 +38,34 @@
 #
 # - name: Apply tier 2
 #   ansible.builtin.include_tasks: tier.yaml
+#
+# - name: Import tier 3 applications list
+#   ansible.builtin.include_vars:
+#     file: tier3.yaml
+#     name: tier
+#
+# - name: Apply tier 3
+#   ansible.builtin.include_tasks: tier.yaml
 
-- name: Import tier 3 applications list
-  ansible.builtin.include_vars:
-    file: tier3.yaml
-    name: tier
-
-- name: Apply tier 3
-  ansible.builtin.include_tasks: tier.yaml
-
-- name: Create namespace for ArgoCD
+- name: Create namespace for ArgoCD and External Secrets
   kubernetes.core.k8s:
-    name: argocd
+    name:
+      - argocd
+      - external-secrets
     api_version: v1
     kind: Namespace
     state: present
 
-- name: Apply ArgoCD manifests
+- name: Install ArgoCD manifests
   kubernetes.core.k8s:
     state: present
     src: https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    namespace: argocd
+
+- name: Apply ArgoCD configuration
+  kubernetes.core.k8s:
+    state: present
+    src: "{{ argocd.app_url }}"
     namespace: argocd
 
 - name: Create self signed certificates

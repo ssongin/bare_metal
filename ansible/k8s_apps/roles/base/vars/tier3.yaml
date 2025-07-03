@@ -1,21 +1,14 @@
 helm:
-  - name: pihole
-    chart: pihole/pihole
-    version: 2.28.0
-    namespace: dns-pihole
-  - name: k8s-dashboard
-    chart: kubernetes-dashboard/kubernetes-dashboard
-    version: 7.11.1
-    namespace: kube-utility
-  - name: plex
-    chart: plex/plex-media-server
-    version: 0.9.1
-    namespace: media-services
+  # - name: plex
+  #   chart: plex/plex-media-server
+  #   version: 0.9.1
+  #   namespace: media-services
   # - name: kavita
   #   chart: truecharts/kavita
   #   version: 1.0.7
   #   namespace: media-services
 manifest:
-  - k8s-dashboard-account.yaml.j2
-  - k8s-dashboard-rolebinding.yaml.j2
-  - k8s-dashboard-secret.yaml.j2
+  # - gitlab-token.yaml.j2
+  # - k8s-dashboard-account.yaml.j2
+  # - k8s-dashboard-rolebinding.yaml.j2
+  # - k8s-dashboard-secret.yaml.j2

@@ -42,6 +42,10 @@ infrastructure:
       description: Install "kubectl" console tool for Kubernetes API management
     - name: helm
       description: Install "helm" kubernetes packet manager
+    - name: k9s
+      description: Install "k9s" TUI for managing Kubernetes clusters and pods
+    - name: minikube
+      description: Install "minikube" local Kubernentes cluster
     - name: rpi-imager
       description: Install "rpi-image" to setup raspberry pi images
     - name: sshpass
@@ -62,6 +66,8 @@ terminal:
       description: Install "neofetch" cli system information tool
     - name: less
       description: Install "less" pager
+    - name: pacman-contrib
+      description: Install "pacman-contrib"
     - name: tmux
       description: Install "tmux" terminal multiplexer
     - name: neovim

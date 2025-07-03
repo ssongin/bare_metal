@@ -24,12 +24,17 @@ install_hyprland:
 install_desktop:
 	ansible-playbook cis.yaml --ask-become-pass --extra-vars "profile=desktop"
 
+# Install infrastructure packages
+install_infra:
+	ansible-playbook cis.yaml --ask-become-pass --extra-vars "profile=infrastructure"
+
 # Help message
 help:
 	@echo "Usage:"
 	@echo "  make install_base			# Install base packages"
 	@echo "  make install_desktop			# Install desktop applications"
 	@echo "  make install_hyprland			# Install hyprland packages"
+	@echo "  make install_infra			# Install infrastructure packages"
 	@echo "  make install_terminal			# Install terminal utilities"
 	@echo "  make server_prepare			# Prepare cluster servers (Uses password)"
 	@echo "  make server_reconfig			# Reconfigure cluster (Uses SSH key)"

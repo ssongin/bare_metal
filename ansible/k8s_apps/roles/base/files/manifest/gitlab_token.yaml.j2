@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gitlab-secret
+  namespace: external-secrets
+  labels: 
+    type: gitlab
+type: Opaque 
+stringData:
+  token: "{{ external_secrets_token }}"

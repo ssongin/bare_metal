@@ -1,3 +1,5 @@
+argocd:
+  app_url: https://raw.githubusercontent.com/ssongin/argocd/refs/heads/main/argocd-config/application.yaml
 repositories:
   - name: nfs-provisioner
     url: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
@@ -11,9 +13,6 @@ repositories:
   - name: cert-manager
     url: https://charts.jetstack.io
     description: Kubernetes addon for managing certificates
-  - name: pihole
-    url: https://mojo2600.github.io/pihole-kubernetes
-    description: DNS sinkhole
   - name: kubernetes-dashboard
     url: https://kubernetes.github.io/dashboard
     description: Kubernetes dashboard
@@ -36,13 +35,3 @@ ingress:
     hostname: plex.cloud.lan
     service: plex-plex-media-server
     port: 32400
-  - name: k8s-dashboard
-    namespace: kube-utility
-    hostname: k8s-dashboard.cloud.lan
-    service: k8s-dashboard-kong-proxy
-    port: 443
-  - name: argocd
-    namespace: argocd
-    hostname: argocd.cloud.lan
-    service: argocd-server
-    port: 443
