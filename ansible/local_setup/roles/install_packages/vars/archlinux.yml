@@ -48,6 +48,8 @@ infrastructure:
       description: Install "k9s" TUI for managing Kubernetes clusters and pods
     - name: minikube
       description: Install "minikube" local Kubernentes cluster
+    - name: python-kubernetes
+      description: Install "python-kubernetes" python wrapper around kubernetes
     - name: rpi-imager
       description: Install "rpi-image" to setup raspberry pi images
     - name: sshpass
