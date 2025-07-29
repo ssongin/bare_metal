@@ -108,20 +108,20 @@ terminal:
   #     description: Install "ttf-dejavu" fonts for powerlevel10k
 
   pip:
-    - name: zoxide
-      description: Install "zoxide" smarter 'cd'
+    # - name: zoxide
+    #   description: Install "zoxide" smarter 'cd'
     - name: lazygit
       description: Install "lazygit"
-    - name: lazydocker
-      description: Install "lazydocker"
-    - name: bat
-      description: Install "bat"
+    # - name: lazydocker
+    #   description: Install "lazydocker"
+    # - name: bat
+    #   description: Install "bat"
     - name: lsd
       description: Install "lsd"
-    - name: eza
-      description: Install "eza"
-    - name: fzf
-      description: Install "fzf"
+    # - name: eza
+    #   description: Install "eza"
+    # - name: fzf
+    #   description: Install "fzf"
     - name: fd
       description: Install "fd"
     - name: tree-sitter
