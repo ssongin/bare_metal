@@ -1,0 +1,176 @@
+base:
+  apt:
+    - name: build-essential
+      description: Install "build-essential" meta-package
+    - name: stow
+      description: Install GNU "stow" symlink farm manager
+    - name: nfs-common
+      description: Install "nfs-common" NFS support
+
+sdk:
+  apt:
+    - name: maven
+      description: Install "maven"
+    - name: npm
+      description: Install "npm"
+    - name: nodejs
+      description: Install "nodejs"
+    - name: python3-pip
+      description: Install "python3-pip"
+    - name: golang
+      description: Install "golang"
+    - name: sqlitebrowser
+      description: Install "sqlitebrowser"
+    - name: code
+      description: Install VS Code (assumes you added Microsoft repo or Flatpak)
+
+infrastructure:
+  apt:
+    - name: podman
+      description: Install "podman"
+    - name: docker.io
+      description: Install "docker"
+    - name: docker-compose
+      description: Install "docker-compose"
+    - name: terraform
+      description: Install "terraform" (via apt or Hashicorp repo)
+    - name: virtualbox
+      description: Install "virtualbox"
+    - name: vagrant
+      description: Install "vagrant"
+    - name: kubectl
+      description: Install "kubectl"
+    - name: helm
+      description: Install "helm"
+    # - name: k9s
+    #   description: Install "k9s" TUI for managing Kubernetes clusters and pods
+    # - name: minikube
+    #   description: Install "minikube" local Kubernentes cluster
+    # - name: python-kubernetes
+    #   description: Install "python-kubernetes" python wrapper around kubernetes
+    # - name: rpi-imager
+    #   description: Install "rpi-image" to setup raspberry pi images
+    - name: sshpass
+      description: Install "sshpass"
+
+  pip:
+    - name: passlib
+      description: Install "passlib" for Ansible
+
+terminal:
+  apt:
+    - name: kitty
+      description: Install "kitty" terminal emulator
+    - name: zsh
+      description: Install "zsh" shell
+    - name: zsh-completions
+      description: Install "zsh-completions" (part of zsh or zsh-syntax-highlighting/zsh-autosuggestions)
+    - name: neofetch
+      description: Install "neofetch" CLI system info tool
+    - name: less
+      description: Install "less" pager
+    - name: tmux
+      description: Install "tmux" terminal multiplexer
+    - name: neovim
+      description: Install "neovim" text editor
+    - name: unzip
+      description: Install "unzip" archive extractor
+    - name: lha
+      description: Install "lha" compression utility
+    - name: arj
+      description: Install "arj" compression utility
+    - name: unarj
+      description: Install "unarj" unarchiver
+    - name: unace
+      description: Install "unace" archive extractor
+    - name: unrar
+      description: Install "unrar" decompression utility
+    - name: luarocks
+      description: Install "luarocks" Lua package manager
+    - name: net-tools
+      description: Install "net-tools" (ifconfig, etc.)
+    - name: dnsutils
+      description: Install "dnsutils" (dig, etc.)
+    - name: cmus
+      description: Install "cmus" audio player
+    - name: p7zip-full
+      description: Install "p7zip-full" compression utility
+    - name: nmap
+      description: Install "nmap" network scanner
+    - name: tcpdump
+      description: Install "tcpdump" packet analyzer
+  # yay:
+  #   - name: yazi
+  #     description: Install "yazi" file manager
+  #   - name: ttf-meslo-nerd
+  #     description: Install "ttf-meslo-nerd" fonts
+  #   - name: ttf-dejavu
+  #     description: Install "ttf-dejavu" fonts for powerlevel10k
+
+  pip:
+    - name: zoxide
+      description: Install "zoxide" smarter 'cd'
+    - name: lazygit
+      description: Install "lazygit"
+    - name: lazydocker
+      description: Install "lazydocker"
+    - name: bat
+      description: Install "bat"
+    - name: lsd
+      description: Install "lsd"
+    - name: eza
+      description: Install "eza"
+    - name: fzf
+      description: Install "fzf"
+    - name: fd
+      description: Install "fd"
+    - name: tree-sitter
+      description: Install "tree-sitter"
+
+gnome:
+  apt:
+    - name: ubuntu-desktop
+      description: Install "GNOME desktop" (Ubuntu's default)
+    - name: gnome-tweaks
+      description: Install "GNOME Tweaks"
+    - name: gdm3
+      description: Install "GDM3" login manager
+
+desktop:
+  apt:
+    - name: thunderbird
+      description: Install Thunderbird mail client
+    - name: dolphin
+      description: Install Dolphin file manager
+    - name: krusader
+      description: Install Krusader file manager
+    - name: kdiff3
+      description: Install KDiff3 merge tool
+    - name: krename
+      description: Install Krename batch renamer
+    - name: calibre
+      description: Install Calibre e-book manager
+    - name: firefox
+      description: Install Firefox browser
+    - name: keepass2
+      description: Install Keepass password manager
+    - name: rclone
+      description: Install Rclone sync tool
+    - name: qbittorrent
+      description: Install qBittorrent
+    - name: telegram-desktop
+      description: Install Telegram client
+    - name: discord
+      description: Install Discord (may require Snap or .deb)
+    - name: libreoffice
+      description: Install LibreOffice suite
+    - name: vlc
+      description: Install VLC media player
+    - name: gimp
+      description: Install GIMP image editor
+    - name: steam
+      description: Install Steam (may require enabling multiverse)
+    - name: krita
+      description: Install Krita paint program
+    - name: pipewire
+      description: Install Pipewire media service

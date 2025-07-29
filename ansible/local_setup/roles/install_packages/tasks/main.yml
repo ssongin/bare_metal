@@ -4,63 +4,13 @@
   become_user: root
   when: ansible_os_family == "Archlinux"
   block:
+    - name: Execute Archlinux tasks
+      ansible.builtin.include_tasks: archlinux/main.yaml
 
-    - name: Get variable files
-      ansible.builtin.include_vars:
-        file: archlinux.yml
-
-    - name: Configure Pacman
-      ansible.builtin.include_tasks: archlinux/pacman_configuration.yaml
-
-    - name: Update and upgrade
-      community.general.pacman:
-        update_cache: true
-        upgrade: true
-
-    - name: Determine profiles to install
-      ansible.builtin.set_fact:
-        selected_profiles: "{{ [profile] if profile is defined else vars.keys() | list }}"
-
-    - name: "Pacman: Install packages for selected profiles"
-      ansible.builtin.pacman:
-        name: "{{ item.1.name }}"
-        state: "{{ item.1.state | default('latest') }}"
-      with_subelements:
-        - "{{ selected_profiles | map('extract', vars) | selectattr('pacman', 'defined') | list }}"
-        - pacman
-      when: item.1 is defined
-      loop_control:
-        label: "{{ item.1.description }}"
-
-    - name: Install yay
-      ansible.builtin.include_tasks: archlinux/yay_install.yaml
-
-    - name: Update and upgrade yay
-      community.general.pacman:
-        update_cache: true
-        upgrade: true
-        executable: yay
-      become: false
-
-    - name: "Yay: Install packages from selected profiles"
-      ansible.builtin.pacman:
-        name: "{{ item.1.name }}"
-        state: "{{ item.1.state | default('latest') }}"
-        executable: yay
-      with_subelements:
-        - "{{ selected_profiles | map('extract', vars) | selectattr('yay', 'defined') | list }}"
-        - yay
-      when: item.1 is defined
-      loop_control:
-        label: "{{ item.1.description }}"
-
-    - name: "Pip: Install packages from selected profiles"
-      ansible.builtin.pip:
-        name: "{{ item.1.name }}"
-        state: "{{ item.1.state | default('latest') }}"
-      with_subelements:
-        - "{{ selected_profiles | map('extract', vars) | selectattr('pip', 'defined') | list }}"
-        - pip
-      when: item.1 is defined
-      loop_control:
-        label: "{{ item.1.description }}"
+- name: Install packages for "Debian/Ubuntu"
+  become: true
+  become_user: root
+  when: ansible_os_family == "Debian"
+  block:
+    - name: Execute Debian tasks
+      ansible.builtin.include_tasks: debian/main.yaml

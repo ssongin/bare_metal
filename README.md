@@ -46,6 +46,12 @@ root/root
 bash <(curl -s https://raw.githubusercontent.com/ssongin/bare_metal/main/ansible_setup/pacman.sh)
 ```
 
+### Apt (Ubuntu)
+
+```console
+bash <(curl -s https://raw.githubusercontent.com/ssongin/bare_metal/main/ansible_setup/apt.sh)
+```
+
 ## Ansible
 
 ### Description
