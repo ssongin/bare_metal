@@ -8,6 +8,10 @@ server_reconfig:
 server_prepare:
 	ansible-playbook prepare_cluster.yaml --ask-become-pass --ask-pass
 
+# Install all
+install:
+	ansible-playbook cis.yaml --ask-become-pass
+
 # Install base packages
 install_base:
 	ansible-playbook cis.yaml --ask-become-pass --extra-vars "profile=base"
