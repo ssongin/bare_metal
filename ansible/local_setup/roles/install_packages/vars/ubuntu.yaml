@@ -21,8 +21,8 @@ sdk:
       description: Install "golang"
     - name: sqlitebrowser
       description: Install "sqlitebrowser"
-    - name: code
-      description: Install VS Code (assumes you added Microsoft repo or Flatpak)
+    # - name: code
+    #   description: Install VS Code 
 
 infrastructure:
   apt:
@@ -32,16 +32,16 @@ infrastructure:
       description: Install "docker"
     - name: docker-compose
       description: Install "docker-compose"
-    - name: terraform
-      description: Install "terraform" (via apt or Hashicorp repo)
+    # - name: terraform
+    #   description: Install "terraform"
     - name: virtualbox
       description: Install "virtualbox"
-    - name: vagrant
-      description: Install "vagrant"
-    - name: kubectl
-      description: Install "kubectl"
-    - name: helm
-      description: Install "helm"
+    # - name: vagrant
+    #   description: Install "vagrant"
+    # - name: kubectl
+    #   description: Install "kubectl"
+    # - name: helm
+    #   description: Install "helm"
     # - name: k9s
     #   description: Install "k9s" TUI for managing Kubernetes clusters and pods
     # - name: minikube
@@ -63,8 +63,8 @@ terminal:
       description: Install "kitty" terminal emulator
     - name: zsh
       description: Install "zsh" shell
-    - name: zsh-completions
-      description: Install "zsh-completions" (part of zsh or zsh-syntax-highlighting/zsh-autosuggestions)
+    # - name: zsh-completions
+    #   description: Install "zsh-completions" (part of zsh or zsh-syntax-highlighting/zsh-autosuggestions)
     - name: neofetch
       description: Install "neofetch" CLI system info tool
     - name: less
@@ -75,12 +75,12 @@ terminal:
       description: Install "neovim" text editor
     - name: unzip
       description: Install "unzip" archive extractor
-    - name: lha
-      description: Install "lha" compression utility
+    # - name: lha
+    #   description: Install "lha" compression utility
     - name: arj
       description: Install "arj" compression utility
-    - name: unarj
-      description: Install "unarj" unarchiver
+    # - name: unarj
+    #   description: Install "unarj" unarchiver
     - name: unace
       description: Install "unace" archive extractor
     - name: unrar
@@ -130,7 +130,7 @@ terminal:
 gnome:
   apt:
     - name: ubuntu-desktop
-      description: Install "GNOME desktop" (Ubuntu's default)
+      description: Install "GNOME desktop"
     - name: gnome-tweaks
       description: Install "GNOME Tweaks"
     - name: gdm3
@@ -158,10 +158,10 @@ desktop:
       description: Install Rclone sync tool
     - name: qbittorrent
       description: Install qBittorrent
-    - name: telegram-desktop
-      description: Install Telegram client
-    - name: discord
-      description: Install Discord (may require Snap or .deb)
+    # - name: telegram-desktop
+    #   description: Install Telegram client
+    # - name: discord
+    #   description: Install Discord 
     - name: libreoffice
       description: Install LibreOffice suite
     - name: vlc

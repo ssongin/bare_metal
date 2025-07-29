@@ -14,6 +14,7 @@ echo -e "\nInstalling ansible via pipx\n"
 pipx install --include-deps ansible
 
 echo -e "\nConfiguring path for ansible\n"
+export PATH=$PATH:~/.local/bin
 pipx ensurepath
 pipx completions
 
