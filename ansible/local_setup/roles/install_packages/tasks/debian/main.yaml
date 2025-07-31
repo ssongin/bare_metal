@@ -1,16 +1,16 @@
-# - name: Get repositories list file
-#   ansible.builtin.include_vars:
-#     file: ubuntu/repositories.yaml
+- name: Get repositories list file
+  ansible.builtin.include_vars:
+    file: ubuntu/repositories.yaml
 
-# - name: Add APT repositories from variable list
-#   ansible.builtin.apt_repository:
-#     repo: "{{ item.repo }}"
-#     filename: "{{ item.filename | default(omit) }}"
-#     state: present
-#     update_cache: yes
-#   loop: "{{ package_repositories }}"
-#   loop_control:
-#     label: "{{ item.description | default(item.repo) }}"
+- name: Add APT repositories from variable list
+  ansible.builtin.apt_repository:
+    repo: "{{ item.repo }}"
+    filename: "{{ item.filename | default(omit) }}"
+    state: present
+    update_cache: yes
+  loop: "{{ package_repositories }}"
+  loop_control:
+    label: "{{ item.description | default(item.repo) }}"
 
 - name: Get variable files
   ansible.builtin.include_vars:

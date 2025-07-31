@@ -114,16 +114,14 @@ terminal:
       description: Install "fd-find"
     - name: fzf
       description: Install "fzf"
-
+    - name: neovim
+      description: Install "neovim" text editor
   snap:
     - name: yazi
       description: Install "yazi" file manager
       classic: true
     - name: lazygit
       description: Install "lazygit"
-      classic: true
-    - name: neovim
-      description: Install "neovim" text editor
       classic: true
   # yay:
   #   - name: ttf-meslo-nerd
