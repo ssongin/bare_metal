@@ -2,15 +2,13 @@
   ansible.builtin.include_vars:
     file: ubuntu/repositories.yaml
 
-- name: Add APT repositories from variable list
-  ansible.builtin.apt_repository:
-    repo: "{{ item.repo }}"
-    filename: "{{ item.filename | default(omit) }}"
-    state: present
-    update_cache: yes
-  loop: "{{ package_repositories }}"
+- name: Add PPAs using add-apt-repository
+  ansible.builtin.command: add-apt-repository -y {{ item.ppa }}
+  register: add_ppa_result
+  changed_when: "'has been added' in add_ppa_result.stdout or add_ppa_result.rc == 0"
+  loop: "{{ ubuntu_ppas }}"
   loop_control:
-    label: "{{ item.description | default(item.repo) }}"
+    label: "{{ item.description }}"
 
 - name: Get variable files
   ansible.builtin.include_vars:

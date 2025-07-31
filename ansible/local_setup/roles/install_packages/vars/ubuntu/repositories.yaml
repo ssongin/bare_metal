@@ -1,4 +1,3 @@
-package_repositories:
-  - repo: "ppa:neovim-ppa/stable"
-    filename: "neovim"
+ubuntu_ppas:
+  - ppa: "ppa:neovim-ppa/stable"
     description: "Neovim PPA"
