@@ -104,6 +104,18 @@ terminal:
       description: Install "nmap" network scanner
     - name: tcpdump
       description: Install "tcpdump" packet analyzer
+    - name: zoxide
+      description: Install "zoxide" smarter 'cd'
+    - name: bat
+      description: Install "bat"
+    - name: lsd
+      description: Install "lsd"
+    - name: fd-find
+      description: Install "fd-find"
+    - name: fzf
+      description: Install "fzf"
+    - name: lazygit
+      description: Install "lazygit"
   snap:
     - name: yazi
       description: Install "yazi" file manager
@@ -118,22 +130,10 @@ terminal:
   #     description: Install "ttf-dejavu" fonts for powerlevel10k
 
   pip:
-    # - name: zoxide
-    #   description: Install "zoxide" smarter 'cd'
-    - name: lazygit
-      description: Install "lazygit"
     # - name: lazydocker
     #   description: Install "lazydocker"
-    # - name: bat
-    #   description: Install "bat"
-    - name: lsd
-      description: Install "lsd"
     # - name: eza
     #   description: Install "eza"
-    # - name: fzf
-    #   description: Install "fzf"
-    - name: fd
-      description: Install "fd"
     - name: tree-sitter
       description: Install "tree-sitter"
 
@@ -184,4 +184,6 @@ desktop:
     - name: telegram-desktop
       description: Install Telegram client
     - name: discord
-      description: Install Discord 
+      description: Install Discord
+    - name: kontena-lens
+      description: Install "kontena-lens" kubernetes management tool

@@ -44,6 +44,6 @@ help:
 	@echo "  make install_infra			# Install infrastructure packages"
 	@echo "  make install_sdk			# Install sdk packages"
 	@echo "  make install_terminal			# Install terminal utilities"
-	@echo "  make install					# Install all packages"
+	@echo "  make install			# Install all packages"
 	@echo "  make server_prepare			# Prepare cluster servers (Uses password)"
 	@echo "  make server_reconfig			# Reconfigure cluster (Uses SSH key)"

@@ -1,0 +1,4 @@
+package_repositories:
+  - repo: "ppa:lazygit-team/ppa"
+    filename: "lazygit"
+    description: "Lazygit PPA"
