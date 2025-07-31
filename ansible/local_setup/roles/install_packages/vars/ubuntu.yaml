@@ -21,8 +21,10 @@ sdk:
       description: Install "golang"
     - name: sqlitebrowser
       description: Install "sqlitebrowser"
-    # - name: code
-    #   description: Install VS Code 
+  snap:
+    - name: code
+      description: Install VS Code
+      classic: true
 
 infrastructure:
   apt:
@@ -32,30 +34,35 @@ infrastructure:
       description: Install "docker"
     - name: docker-compose
       description: Install "docker-compose"
-    # - name: terraform
-    #   description: Install "terraform"
     - name: virtualbox
       description: Install "virtualbox"
     # - name: vagrant
     #   description: Install "vagrant"
-    # - name: kubectl
-    #   description: Install "kubectl"
-    # - name: helm
-    #   description: Install "helm"
-    # - name: k9s
-    #   description: Install "k9s" TUI for managing Kubernetes clusters and pods
     # - name: minikube
     #   description: Install "minikube" local Kubernentes cluster
     # - name: python-kubernetes
     #   description: Install "python-kubernetes" python wrapper around kubernetes
-    # - name: rpi-imager
-    #   description: Install "rpi-image" to setup raspberry pi images
     - name: sshpass
       description: Install "sshpass"
-
   pip:
     - name: passlib
       description: Install "passlib" for Ansible
+  snap:
+    - name: terraform
+      description: Install "terraform" IaC tool
+      classic: true
+    - name: kubectl
+      description: Install "kubectl"
+      classic: true
+    - name: helm
+      description: Install "helm"
+      classic: true
+    - name: k9s
+      description: Install "k9s" TUI for managing Kubernetes clusters and pods
+      classic: true
+    - name: rpi-imager
+      description: Install "rpi-image" to setup raspberry pi images
+      classic: true
 
 terminal:
   apt:
@@ -99,9 +106,11 @@ terminal:
       description: Install "nmap" network scanner
     - name: tcpdump
       description: Install "tcpdump" packet analyzer
+  snap:
+    - name: yazi
+      description: Install "yazi" file manager
+      classic: true  
   # yay:
-  #   - name: yazi
-  #     description: Install "yazi" file manager
   #   - name: ttf-meslo-nerd
   #     description: Install "ttf-meslo-nerd" fonts
   #   - name: ttf-dejavu
@@ -158,10 +167,6 @@ desktop:
       description: Install Rclone sync tool
     - name: qbittorrent
       description: Install qBittorrent
-    # - name: telegram-desktop
-    #   description: Install Telegram client
-    # - name: discord
-    #   description: Install Discord 
     - name: libreoffice
       description: Install LibreOffice suite
     - name: vlc
@@ -174,3 +179,8 @@ desktop:
       description: Install Krita paint program
     - name: pipewire
       description: Install Pipewire media service
+  snap:
+    - name: telegram-desktop
+      description: Install Telegram client
+    - name: discord
+      description: Install Discord 

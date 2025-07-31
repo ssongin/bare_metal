@@ -32,3 +32,15 @@
   when: item.1 is defined
   loop_control:
     label: "{{ item.1.description }}"
+
+- name: Install snap packages
+  community.general.snap:
+    name: "{{ item.1.name }}"
+    classic: "{{ item.1.classic | default(false) }}"
+    state: "{{ item.1.state | default('latest') }}"
+  with_subelements:
+    - "{{ selected_profiles | map('extract', vars) | selectattr('snap', 'defined') | list }}"
+    - snap
+  when: item.1 is defined
+  loop_control:
+    label: "{{ item.1.description }}"
