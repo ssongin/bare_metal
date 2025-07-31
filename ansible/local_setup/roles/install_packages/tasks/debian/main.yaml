@@ -37,7 +37,7 @@
   community.general.snap:
     name: "{{ item.1.name }}"
     classic: "{{ item.1.classic | default(false) }}"
-    state: "{{ item.1.state | default('latest') }}"
+    state: "{{ item.1.state | default('present') }}"
   with_subelements:
     - "{{ selected_profiles | map('extract', vars) | selectattr('snap', 'defined') | list }}"
     - snap

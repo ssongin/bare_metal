@@ -78,8 +78,6 @@ terminal:
       description: Install "less" pager
     - name: tmux
       description: Install "tmux" terminal multiplexer
-    - name: neovim
-      description: Install "neovim" text editor
     - name: unzip
       description: Install "unzip" archive extractor
     # - name: lha
@@ -109,7 +107,10 @@ terminal:
   snap:
     - name: yazi
       description: Install "yazi" file manager
-      classic: true  
+      classic: true
+    - name: neovim
+      description: Install "neovim" text editor
+      classic: true
   # yay:
   #   - name: ttf-meslo-nerd
   #     description: Install "ttf-meslo-nerd" fonts
