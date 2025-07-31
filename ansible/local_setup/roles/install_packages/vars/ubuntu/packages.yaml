@@ -119,11 +119,11 @@ terminal:
     - name: yazi
       description: Install "yazi" file manager
       classic: true
-    - name: neovim
-      description: Install "neovim" text editor
-      classic: true
     - name: lazygit
       description: Install "lazygit"
+      classic: true
+    - name: neovim
+      description: Install "neovim" text editor
       classic: true
   # yay:
   #   - name: ttf-meslo-nerd
@@ -189,3 +189,4 @@ desktop:
       description: Install Discord
     - name: kontena-lens
       description: Install "kontena-lens" kubernetes management tool
+      classic: true
