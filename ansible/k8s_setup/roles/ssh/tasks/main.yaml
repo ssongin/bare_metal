@@ -1,5 +1,5 @@
 ---
-- name: Remove SSH host keys
+- name: Configure SSH
   become: true
   become_user: root
   block:

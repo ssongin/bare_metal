@@ -8,6 +8,10 @@ server_reconfig:
 server_prepare:
 	ansible-playbook prepare_cluster.yaml --ask-become-pass --ask-pass
 
+# Install all for windows
+win_install:
+	ansible-playbook win_install.yaml
+
 # Install all
 install:
 	ansible-playbook cis.yaml --ask-become-pass
@@ -47,3 +51,4 @@ help:
 	@echo "  make install				# Install all packages"
 	@echo "  make server_prepare			# Prepare cluster servers (Uses password)"
 	@echo "  make server_reconfig			# Reconfigure cluster (Uses SSH key)"
+	@echo "  make win_install				# Install all packages for Windows"

@@ -1,0 +1,47 @@
+choco_packages:
+  sdk:
+    # - name: maven
+    # - name: nodejs
+    - name: git
+    - name: python3  # contains pip
+    - name: golang
+    - name: sqlitebrowser
+    - name: visualstudiocode
+  infrastructure:
+    - name: docker-desktop
+    - name: docker-compose
+    - name: terraform
+    - name: virtualbox
+    - name: vagrant
+    - name: kubernetes-cli  # kubectl
+    - name: kubernetes-helm
+    - name: k9s
+    - name: minikube
+    - name: rpi-imager
+  terminal:
+    # - name: neovim
+    # - name: fzf
+    # - name: bat
+    # - name: fd
+    # - name: unzip
+    # - name: lsd
+    - name: lazygit
+    - name: lazydocker
+    # - name: zoxide
+    # - name: neofetch
+    # - name: tmux
+  desktop:
+    - name: firefox
+    - name: thunderbird
+    - name: calibre
+    - name: telegram
+    - name: discord
+    - name: libreoffice-fresh
+    - name: vlc
+    - name: gimp
+    - name: steam
+    - name: krita
+    - name: qbittorrent
+    - name: keepass
+    - name: drawio
+    # - name: rclone
