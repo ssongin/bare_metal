@@ -7,15 +7,15 @@
     name: chocolatey
     state: present
 
-- name: Install Chocolatey packages for selected profiles
+- name: Install Chocolatey packages for selected or all profiles
   chocolatey.chocolatey.win_chocolatey:
     name: "{{ item.name }}"
     state: present
   loop: >-
     {{
-      (selected_profile is defined and selected_profile in choco_packages)
-        | ternary(choco_packages[selected_profile],
-                  choco_packages.values() | flatten)
+      (choco_packages[(selected_profile | default(''))] 
+        if (selected_profile | default('') in choco_packages) 
+        else choco_packages.values() | flatten)
     }}
   loop_control:
     label: "{{ item.name }}"
