@@ -25,6 +25,13 @@
     name: all
     state: latest
 
+- name: Add Python to PATH
+  win_environment:
+    state: present
+    name: PATH
+    value: 'C:\Python313;C:\Python313\Scripts'
+    level: machine
+
 - name: Install pip packages
   ansible.windows.win_shell: pip install {{ item }}
   loop:
