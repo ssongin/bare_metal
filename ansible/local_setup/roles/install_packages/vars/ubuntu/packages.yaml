@@ -46,7 +46,9 @@ infrastructure:
       description: Install "sshpass"
   pip:
     - name: passlib
-      description: Install "passlib" for Ansible
+      description: Install "passlib" utility for ansible to change passwords remotely
+    - name: "pywinrm[credssp]"
+      description: Install "pywinrm[credssp]" for Windows winrm connection protocol
   snap:
     - name: terraform
       description: Install "terraform" IaC tool

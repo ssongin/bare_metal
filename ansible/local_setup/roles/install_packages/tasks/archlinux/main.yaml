@@ -1,6 +1,6 @@
     - name: Get variable files
       ansible.builtin.include_vars:
-        file: archlinux.yaml
+        file: archlinux/packages.yaml
 
     - name: Configure Pacman
       ansible.builtin.include_tasks: pacman_configuration.yaml

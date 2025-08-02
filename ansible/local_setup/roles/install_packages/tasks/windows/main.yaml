@@ -7,13 +7,19 @@
     name: chocolatey
     state: present
 
-- name: Install Chocolatey packages
+- name: Install Chocolatey packages for selected profiles
   chocolatey.chocolatey.win_chocolatey:
     name: "{{ item.name }}"
     state: present
-  loop: "{{ choco_packages[selected_profile] }}"
+  loop: >-
+    {{
+      (selected_profile is defined and selected_profile in choco_packages)
+        | ternary(choco_packages[selected_profile],
+                  choco_packages.values() | flatten)
+    }}
   loop_control:
     label: "{{ item.name }}"
+
 
 - name: Ensure pip is installed (comes with python3)
   chocolatey.chocolatey.win_chocolatey:

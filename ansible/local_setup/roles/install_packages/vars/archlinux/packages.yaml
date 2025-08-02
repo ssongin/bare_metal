@@ -57,6 +57,8 @@ infrastructure:
   pip:
     - name: passlib
       description: Install "passlib" utility for ansible to change passwords remotely
+    - name: "pywinrm[credssp]"
+      description: Install "pywinrm[credssp]" for Windows winrm connection protocol
 
 terminal:
   pacman:
