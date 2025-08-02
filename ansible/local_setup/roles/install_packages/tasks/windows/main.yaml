@@ -20,6 +20,11 @@
   loop_control:
     label: "{{ item.name }}"
 
+- name: Upgrade installed packages
+  chocolatey.chocolatey.win_chocolatey:
+    name: all
+    state: latest
+
 
 - name: Ensure pip is installed (comes with python3)
   chocolatey.chocolatey.win_chocolatey:
