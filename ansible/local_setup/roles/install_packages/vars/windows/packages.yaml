@@ -62,3 +62,7 @@ system_path_entries:
   - 'C:\Windows'
   - 'C:\Windows\System32\Wbem'
   - 'C:\Windows\System32\WindowsPowerShell\v1.0\'
+  - 'C:\Program Files\Oracle\VirtualBox'
+  - 'C:\Program Files\Vagrant\bin'
+  - 'C:\Program Files (x86)\Raspberry Pi Imager'
+  - 'C:\Program Files\Microsoft VS Code\bin'
