@@ -1,7 +1,6 @@
 ---
 - name: Configure and Install System
   hosts: remote_windows
-  become: yes
 
   roles:
     - role: install_packages

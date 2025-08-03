@@ -25,12 +25,10 @@
     name: all
     state: latest
 
-- name: Add Python to PATH
-  win_environment:
-    state: present
-    name: PATH
-    value: 'C:\Python313;C:\Python313\Scripts'
-    level: machine
+- name: Expand system_path_entries with ansible_user
+  set_fact:
+    resolved_path_entries: >-
+      {{ system_path_entries | map('regex_replace', '\{\{\s*ansible_user\s*\}\}', ansible_user) | list }}
 
 - name: Ensure key application paths are in system PATH
   win_environment:

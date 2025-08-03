@@ -10,7 +10,7 @@ server_prepare:
 
 # Install all for windows
 win_install:
-	ansible-playbook win_install.yaml
+	ansible-playbook win_install.yaml --ask-pass
 
 # Install all
 install:

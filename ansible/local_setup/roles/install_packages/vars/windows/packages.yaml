@@ -58,3 +58,7 @@ system_path_entries:
   - 'C:\Python313'
   - 'C:\Python313\Scripts'
   - 'C:\Users\{{ ansible_user }}\AppData\Local\Microsoft\WindowsApps'
+  - 'C:\Windows\System32'
+  - 'C:\Windows'
+  - 'C:\Windows\System32\Wbem'
+  - 'C:\Windows\System32\WindowsPowerShell\v1.0\'
