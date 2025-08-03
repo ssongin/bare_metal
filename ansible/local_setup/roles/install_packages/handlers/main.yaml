@@ -1,0 +1,4 @@
+- name: Reboot Windows system
+  win_reboot:
+    msg: "Rebooting Windows"
+    reboot_timeout: 600

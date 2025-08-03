@@ -32,6 +32,16 @@
     value: 'C:\Python313;C:\Python313\Scripts'
     level: machine
 
+- name: Ensure key application paths are in system PATH
+  win_environment:
+    state: present
+    name: PATH
+    level: machine
+    value: "{{ item }}"
+    separator: ';'
+  loop: "{{ system_path_entries }}"
+  notify: Reboot Windows system
+
 - name: Install pip packages
   ansible.windows.win_shell: pip install {{ item }}
   loop:
