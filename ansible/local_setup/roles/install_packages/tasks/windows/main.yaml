@@ -31,13 +31,10 @@
       {{ system_path_entries | map('regex_replace', '\{\{\s*ansible_user\s*\}\}', ansible_user) | list }}
 
 - name: Ensure key application paths are in system PATH
-  win_environment:
+  ansible.windows.win_path:
+    elements: "{{ resolved_path_entries }}"
     state: present
-    name: PATH
-    level: machine
-    value: "{{ item }}"
-    separator: ';'
-  loop: "{{ system_path_entries }}"
+    scope: machine
   notify: Reboot Windows system
 
 - name: Install pip packages
