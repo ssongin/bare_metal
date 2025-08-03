@@ -3,7 +3,7 @@ choco_packages:
     # - name: maven
     # - name: nodejs
     - name: git
-    - name: python313
+    # - name: python313
     - name: golang
     - name: sqlitebrowser
     - name: visualstudiocode
