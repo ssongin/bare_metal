@@ -38,8 +38,6 @@ infrastructure:
       description: Install "virtualbox-host-modules-arch" kernel interaction modules
     - name: virtualbox
       description: Install "virtualbox" hypervisor
-    - name: vagrant
-      description: Install "vagrant" virtual environment manager
     - name: kubectl
       description: Install "kubectl" console tool for Kubernetes API management
     - name: helm
@@ -54,6 +52,9 @@ infrastructure:
       description: Install "rpi-image" to setup raspberry pi images
     - name: sshpass
       description: Install "sshpass" utility for ansible remote connection with pass
+  yay:
+    - name: vagrant
+      description: Install "vagrant" virtual environment manager
   pip:
     - name: passlib
       description: Install "passlib" utility for ansible to change passwords remotely
@@ -68,8 +69,6 @@ terminal:
       description: Install "zsh" shell
     - name: zsh-completions
       description: Install "zsh-completions" for autocomplete in z shell
-    - name: neofetch
-      description: Install "neofetch" cli system information tool
     - name: less
       description: Install "less" pager
     - name: pacman-contrib
@@ -88,8 +87,6 @@ terminal:
       description: Install "zoxide" smarter 'cd' command
     - name: lazygit
       description: Install "lazygit" for graphical interaction in terminal
-    - name: lazydocker
-      description: Install "lazydocker" for graphical interaction in terminal
     - name: fzf
       description: Install "fzf" for fuzzy finding
     - name: fd
@@ -123,6 +120,10 @@ terminal:
     - name: tcpdump
       description: Install "tcpdump" packet analyzer
   yay:
+    - name: neofetch
+      description: Install "neofetch" cli system information tool
+    - name: lazydocker
+      description: Install "lazydocker" for graphical interaction in terminal
     - name: yazi
       description: Install "yazi" file manager
     - name: ttf-meslo-nerd
@@ -230,8 +231,6 @@ desktop:
     #   description: Install "jfsutils" jfs file system utilities
     # - name: ntfsprogs
     #   description: Install "ntfsprogs" utilities for managing ntfs
-    # - name: reiserfsprogs
-    #   description: Install "reiserfsprogs" reiserfs utilities
     # - name: xfsprogs
     #   description: Install "xfsprogs" xfs filesystem utilities
 
