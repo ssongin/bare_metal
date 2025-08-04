@@ -29,7 +29,6 @@ choco_packages:
     - name: lazygit
     - name: lazydocker
     # - name: zoxide
-    # - name: neofetch
     # - name: tmux
   desktop:
     - name: firefox

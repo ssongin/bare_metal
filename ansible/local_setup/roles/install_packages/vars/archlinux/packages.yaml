@@ -122,8 +122,6 @@ terminal:
     - name: tcpdump
       description: Install "tcpdump" packet analyzer
   yay:
-    - name: neofetch
-      description: Install "neofetch" cli system information tool
     - name: lazydocker
       description: Install "lazydocker" for graphical interaction in terminal
     - name: yazi

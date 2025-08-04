@@ -76,8 +76,6 @@ terminal:
       description: Install "zsh" shell
     # - name: zsh-completions
     #   description: Install "zsh-completions" (part of zsh or zsh-syntax-highlighting/zsh-autosuggestions)
-    - name: neofetch
-      description: Install "neofetch" CLI system info tool
     - name: less
       description: Install "less" pager
     - name: tmux
