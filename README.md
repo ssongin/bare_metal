@@ -52,6 +52,133 @@ bash <(curl -s https://raw.githubusercontent.com/ssongin/bare_metal/main/ansible
 bash <(curl -s https://raw.githubusercontent.com/ssongin/bare_metal/main/ansible_setup/apt.sh)
 ```
 
+## Packages
+ 
+### Installation
+
+#### Profiles
+
+Packages can be installed in bulk by profile one by one. Also, if profile parameter is missing then all packages will be installed.
+
+#### Archlinux
+
+Installs "yay". Packages added via pacman, yay and pip.
+
+#### Ubuntu/Debian
+
+To install packages uses apt, snap and pip. Also there is separate file to add PPA repositories.
+
+#### Windows
+
+For installation ansible playbook uses chocolatey and pip. Additionally sets PATH parameters.
+
+### Package list
+
+#### Profile: base
+
+| Package | Archlinux | Ubunut/Debian | Windows | Description |
+| --- | --- | --- | --- | --- |
+| base-devel|  |  |  | Package group that includes tools needed for building (compiling and linking). |
+| stow | | | | GNU Stow symlink farm manager |
+| nfs-utils | | | | Support programs for Network File System |
+
+#### Profile: sdk
+
+| Package | Archlinux | Ubunut/Debian | Windows | Description |
+| --- | --- | --- | --- | --- |
+| maven | | | | Build management tool for Java |
+| npm | | | | Node packet manager |
+| nodejs | | | | JS runtime |
+| python-pip | | | | Packet installer for python |
+| go | | | | Golang compiler and development tools |
+| sqlitebrowser | | | | Sqlite DB browser |
+| code | | | | Visual Code text editor |
+
+#### Profile: infrastructure
+
+| Package | Archlinux | Ubunut/Debian | Windows | Description |
+| --- | --- | --- | --- | --- |
+| podamn | | | | Podman container service |
+| docker | | | | Docker container service |
+| docker-compose | | | | Container manager |
+| terraform | | | | IaC tool |
+| virtualbox-host-modules-arch | | | | VBox kernel interaction modules |
+| virtualbox | | | | Virtualbox hypervisor |
+| kubectl | | | | Console tool for Kubernetes API management |
+| helm | | | | Kubernetes packet manager |
+| k9s | | | | TUI for managing Kubernetes cluster |
+| minikube | | | | Local single node Kubernetes cluster |
+| python-kubernetes | | | | Python wrapper around Kubernetes |
+| rpi-image | | | | Raspberry Pi imager |
+| sshpass | | | | Utility for Ansible remote pass connection |
+| passlib | | | | Utility for Ansible to change passwords |
+| pywinrm\[credssp\] | | | | Utility for Ansible WinRM connection |
+
+#### Profile: terminal
+
+
+| Package | Archlinux | Ubunut/Debian | Windows | Description |
+| --- | --- | --- | --- | --- |
+| wezterm | | | | Wezterm terminal emulator |
+| kitty | | | | Kitty terminal emulator |
+| zsh | | | | ZSH shell |
+| zsh-completions | | | | Autocomplete for zsh |
+| less | | | | Terminal pager |
+| pacman-contrib | | | | Collection of tools that extends functionality of pacman |
+| tmux | | | | Terminal multiplexer |
+| neovim | | | | Text editor |
+| lsd | | | | Analog for "ls" command |
+| eza | | | | Analog for "ls" command |
+| bat | | | | Analog for "cat" command |
+| zoxide | | | | Analog for "cd" command |
+| lazygit | | | | TUI for git |
+| fzf | | | | Fuzzy finding utility |
+| fd | | | | Find utility |
+| unzip | | | | ZIP archiving utility |
+| lha | | | | LH-7 archiving utility |
+| arj | | | | ARJ archiving utility |
+| unarj | | | | ARJ archiving utility |
+| unace | | | | ACE archiving utility |
+| unrar | | | | RAR archiving utility |
+| p7zip | | | | ZIP archiving utility |
+|luarocks | | | | Deployment and management system for lua |
+| tree-sitter | | | | Incremental parsing library |
+| net-tools | | | | Linux networking utilities |
+| dnsutils | | | | Tool to query internet domain name servers |
+| nmap | | | | Utility for network discovery and security auditing |
+| tcpdump | | | | Network packet analyzer |
+| cmus | | | | Console audio player |
+| lazydocker | | | | TUI for docker |
+| yazi | | | | Terimnal file explorer |
+| ttf-meslo-nerd | | | | Meslo nerd fonts |
+| ttf-dejavu | | | | Dejavu fonts for powerlevel10k |
+| picom | | | | Lightweight compositor for X11 |
+
+#### Profile: Desktop
+
+| Package | Archlinux | Ubunut/Debian | Windows | Description |
+| --- | --- | --- | --- | --- |
+| thunderbird | | | | Mail, news, chat client from Mozilla |
+| dolphin | | | | KDE file manager |
+| krusader | | | | Advanced file manager |
+| kdiff3 | | | | File comparator/merge tool |
+| krename | | | | Batch file renamer |
+| calibre | | | | E-book management system |
+| drawio-desktop | | | | drawio.io tool for diagrams |
+| firefox | | | | Web browser |
+| keepass | | | | Password manager |
+| rclone | | | | Sinchronization utility |
+| qbittorrent | | | | Torrent transfer application |
+| telegram-desktop | | | | Telegram messager service |
+| discord | | | | Discord messager service |
+| libreoffice-fresh | | | | Libre office suit application bundle |
+| vlc | | | | Media player |
+| gimp | | | | Image editor |
+| krita | | | | Image editor |
+| steam | | | | Game distribution service |
+| pipewire | | | | Audio and video stream handler |
+
+
 ## Ansible
 
 ### Description
