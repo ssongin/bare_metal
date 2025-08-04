@@ -139,14 +139,14 @@ terminal:
     - name: tree-sitter
       description: Install "tree-sitter"
 
-gnome:
-  apt:
-    - name: ubuntu-desktop
-      description: Install "GNOME desktop"
-    - name: gnome-tweaks
-      description: Install "GNOME Tweaks"
-    - name: gdm3
-      description: Install "GDM3" login manager
+# gnome:
+#   apt:
+#     - name: ubuntu-desktop
+#       description: Install "GNOME desktop"
+#     - name: gnome-tweaks
+#       description: Install "GNOME Tweaks"
+#     - name: gdm3
+#       description: Install "GDM3" login manager
 
 desktop:
   apt:

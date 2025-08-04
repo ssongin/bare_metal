@@ -130,51 +130,51 @@ terminal:
     - name: ttf-dejavu
       description: Install "ttf-dejavu" fonts for powerlevel10k
 
-gnome:
-  pacman:
-    - name: gnome
-      description: Install "gnome" desktop environment
-    - name: gnome-tweaks
-      description: Install "gnome-tweaks"
-    - name: gdm
-      description: Install "gdm" greeter
-
-hyprland:
-  pacman:
-    - name: hyprland
-      description: Install "hyprland" window manager
-    - name: hyprpaper
-      description: Install "hyprpaper" wallpaper for hyprland
-    - name: qt5-wayland
-      description: Install "qt5-wayland" QtWayland platform plugin for Qt5 applications
-    - name: qt6-wayland
-      description: Install "qt6-wayland" QtWayland platform plugin for Qt6 applications
-    - name: slurp
-      description: Install "slurp" cli utility to select a region in a Wayland compositor
-    - name: dunst
-      description: Install "dunst" notification system
-    - name: grim
-      description: Install "grim" console utility to make Wayland screenshots
-    - name: polkit-kde-agent
-      description: Install "polkit-kde-agent" daemon providing a polkit authentication UI for KDE
-    - name: brightnessctl
-      description: Install "brightnessctl" to change screen brightness
-    - name: wofi
-      description: Install "wofi" application launcher
-    - name: xdg-desktop-portal-gtk
-      description: Install "xdg-desktop-portal-gtk" backend implementation using GTK
-    - name: xdg-desktop-portal-hyprland
-      description: Install "xdg-desktop-portal-hyprland" an XDG Desktop Portal backend for Hyprland
-    - name: polkit-gnome
-      description: Install "polkit-gnome" authentication framework
-    - name: xorg-xhost
-      description: Install "xorg-xhost" server access control program for X
-    - name: waybar
-      description: Instlall "waybar" wayland bar for sway
-    - name: swaync
-      description: Install "swaync" notification window
-    - name: xcb-util-cursor
-      description: Install "xcb-util-cursor" X11 GUI cursor management library
+# gnome:
+#   pacman:
+#     - name: gnome
+#       description: Install "gnome" desktop environment
+#     - name: gnome-tweaks
+#       description: Install "gnome-tweaks"
+#     - name: gdm
+#       description: Install "gdm" greeter
+# 
+# hyprland:
+#   pacman:
+#     - name: hyprland
+#       description: Install "hyprland" window manager
+#     - name: hyprpaper
+#       description: Install "hyprpaper" wallpaper for hyprland
+#     - name: qt5-wayland
+#       description: Install "qt5-wayland" QtWayland platform plugin for Qt5 applications
+#     - name: qt6-wayland
+#       description: Install "qt6-wayland" QtWayland platform plugin for Qt6 applications
+#     - name: slurp
+#       description: Install "slurp" cli utility to select a region in a Wayland compositor
+#     - name: dunst
+#       description: Install "dunst" notification system
+#     - name: grim
+#       description: Install "grim" console utility to make Wayland screenshots
+#     - name: polkit-kde-agent
+#       description: Install "polkit-kde-agent" daemon providing a polkit authentication UI for KDE
+#     - name: brightnessctl
+#       description: Install "brightnessctl" to change screen brightness
+#     - name: wofi
+#       description: Install "wofi" application launcher
+#     - name: xdg-desktop-portal-gtk
+#       description: Install "xdg-desktop-portal-gtk" backend implementation using GTK
+#     - name: xdg-desktop-portal-hyprland
+#       description: Install "xdg-desktop-portal-hyprland" an XDG Desktop Portal backend for Hyprland
+#     - name: polkit-gnome
+#       description: Install "polkit-gnome" authentication framework
+#     - name: xorg-xhost
+#       description: Install "xorg-xhost" server access control program for X
+#     - name: waybar
+#       description: Instlall "waybar" wayland bar for sway
+#     - name: swaync
+#       description: Install "swaync" notification window
+#     - name: xcb-util-cursor
+#       description: Install "xcb-util-cursor" X11 GUI cursor management library
 
   yay:
     - name: picom
