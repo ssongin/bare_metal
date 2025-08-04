@@ -52,9 +52,9 @@ infrastructure:
       description: Install "rpi-image" to setup raspberry pi images
     - name: sshpass
       description: Install "sshpass" utility for ansible remote connection with pass
-  yay:
-    - name: vagrant
-      description: Install "vagrant" virtual environment manager
+#  yay:
+#    - name: vagrant
+#      description: Install "vagrant" virtual environment manager
   pip:
     - name: passlib
       description: Install "passlib" utility for ansible to change passwords remotely
@@ -63,6 +63,8 @@ infrastructure:
 
 terminal:
   pacman:
+    - name: wezterm
+      description: Install "wezterm" terminal emulator
     - name: kitty
       description: Install "kitty" terminal emulator
     - name: zsh

@@ -68,6 +68,8 @@ infrastructure:
 
 terminal:
   apt:
+    - name: wezterm
+      descripiton: Install "wezterm" terminal emulator
     - name: kitty
       description: Install "kitty" terminal emulator
     - name: zsh
