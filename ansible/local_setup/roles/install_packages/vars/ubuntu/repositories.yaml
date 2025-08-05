@@ -1,3 +1,5 @@
 ubuntu_ppas:
   - ppa: "ppa:neovim-ppa/stable"
     description: "Neovim PPA"
+  - ppa: "ppa:unit193/encryption"
+    descripiton: "Veracrypt PPA"

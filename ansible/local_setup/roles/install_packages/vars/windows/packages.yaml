@@ -46,6 +46,7 @@ choco_packages:
     - name: drawio
     - name: wezterm
     - name: lens
+    - name: veracrypt
     # - name: rclone
 
 system_path_entries:

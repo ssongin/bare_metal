@@ -172,6 +172,7 @@ For installation ansible playbook uses chocolatey and pip. Additionally sets PAT
 | steam | ✓ | ✓ | ✓ | Game distribution service |
 | pipewire | ✓ | ✓ | | Audio and video stream handler |
 | lens/kontenta-lens | | ✓ | ✓ | The IDE for Kubernetes |
+| veracrypt | ✓ | ✓ | ✓ | Disk encryption with strong security based on TrueCrypt. |
 
 ## Ansible
 

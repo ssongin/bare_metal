@@ -182,6 +182,8 @@ desktop:
       description: Install Krita paint program
     - name: pipewire
       description: Install Pipewire media service
+    - name: veracrypt
+      description: Install "veracrypt" encryption tool
   snap:
     - name: telegram-desktop
       description: Install Telegram client

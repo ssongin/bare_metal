@@ -217,6 +217,8 @@ desktop:
       description: Install "krita" image editor
     - name: pipewire
       description: Install "pipewire" audio and video stream handler
+    - name: veracrypt
+      description: Install "veracrypt" encryption tool
 
     # - name: gparted
     #   description: Install "gparted" partition tools software
