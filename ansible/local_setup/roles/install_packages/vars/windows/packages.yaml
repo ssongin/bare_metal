@@ -47,6 +47,7 @@ choco_packages:
     - name: wezterm
     - name: lens
     - name: veracrypt
+    - name: googledrive
     # - name: rclone
 
 system_path_entries:

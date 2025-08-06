@@ -43,8 +43,17 @@ bash <(curl -s https://raw.githubusercontent.com/ssongin/bare_metal/main/ansible
 bash <(curl -s https://raw.githubusercontent.com/ssongin/bare_metal/main/ansible_setup/apt.sh)
 ```
 
+## Enable WinRM
+
+### Powershell (Windows)
+
+```console
+powershell -ExecutionPolicy Bypass -NoProfile -Command "Invoke-Expression ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/ssongin/bare_metal/main/ansible_setup/powershell-winrm.ps1'))"
+
+```
+
 ## Packages
- 
+
 ### Installation
 
 #### Profiles
@@ -173,6 +182,7 @@ For installation ansible playbook uses chocolatey and pip. Additionally sets PAT
 | pipewire | ✓ | ✓ | | Audio and video stream handler |
 | lens/kontenta-lens | | ✓ | ✓ | The IDE for Kubernetes |
 | veracrypt | ✓ | ✓ | ✓ | Disk encryption with strong security based on TrueCrypt. |
+| googledrive | | | ✓ | Google remote drive |
 
 ## Ansible
 
