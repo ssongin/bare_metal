@@ -45,6 +45,9 @@ bash <(curl -s https://raw.githubusercontent.com/ssongin/bare_metal/main/ansible
 
 ## Enable WinRM
 
+> [!IMPORTANT]
+> WinRM connection should be used inside PRIVATE NETWORK. Change network type before executing script.
+
 ### Powershell (Windows)
 
 ```console
