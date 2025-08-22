@@ -59,6 +59,9 @@ infrastructure:
     - name: helm
       description: Install "helm"
       classic: true
+    - name: kustomize
+      description: Install "kustomize" Kubernetes management tool
+      classic: true
     - name: k9s
       description: Install "k9s" TUI for managing Kubernetes clusters and pods
       classic: true

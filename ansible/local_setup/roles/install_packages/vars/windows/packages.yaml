@@ -16,6 +16,7 @@ choco_packages:
     - name: vagrant
     - name: kubernetes-cli
     - name: kubernetes-helm
+    - name: kustomize
     - name: k9s
     - name: minikube
     - name: rpi-imager

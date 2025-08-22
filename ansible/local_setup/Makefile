@@ -51,4 +51,4 @@ help:
 	@echo "  make install				# Install all packages"
 	@echo "  make server_prepare			# Prepare cluster servers (Uses password)"
 	@echo "  make server_reconfig			# Reconfigure cluster (Uses SSH key)"
-	@echo "  make win_install				# Install all packages for Windows"
+	@echo "  make win_install			# Install all packages for Windows"

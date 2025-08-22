@@ -42,6 +42,8 @@ infrastructure:
       description: Install "kubectl" console tool for Kubernetes API management
     - name: helm
       description: Install "helm" kubernetes packet manager
+    - name: kustomize
+      description: Install "kustomize" kubernetes management tool
     - name: k9s
       description: Install "k9s" TUI for managing Kubernetes clusters and pods
     - name: minikube
